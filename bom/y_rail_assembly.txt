@@ -1,0 +1,5 @@
+y_rail_assemblies:
+Vitamins:
+  2 Linear rail carriage MGN15H
+  2 Extrusion E2040 x 354mm
+  2 Linear rail MGN15 x 300mm

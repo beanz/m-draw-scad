@@ -1,0 +1,301 @@
+<a name="TOP"></a>
+# M-draw-scad
+Drawing bot with MGN rails
+
+![Main Assembly](assemblies/main_assembled.png)
+
+<span></span>
+
+---
+## Table of Contents
+1. [Parts list](#Parts_list)
+1. [Idler Assembly](#idler_assembly)
+1. [X Carriage Insert Assembly](#x_carriage_insert_assembly)
+1. [X Carriage Assembly](#x_carriage_assembly)
+1. [X Rail Assembly](#x_rail_assembly)
+1. [Back Frame Assembly](#back_frame_assembly)
+1. [Front Frame Assembly](#front_frame_assembly)
+1. [Y Rail Assembly](#y_rail_assembly)
+1. [Right Y Rail Assembly](#right_y_rail_assembly)
+1. [Left Y Rail Assembly](#left_y_rail_assembly)
+1. [Main Assembly](#main_assembly)
+
+<span></span>
+[Top](#TOP)
+
+---
+<a name="Parts_list"></a>
+## Parts list
+| <span style="writing-mode: vertical-rl; text-orientation: mixed;">12 x Idler</span> | <span style="writing-mode: vertical-rl; text-orientation: mixed;">X&nbsp;Carriage&nbsp;Insert</span> | <span style="writing-mode: vertical-rl; text-orientation: mixed;">X&nbsp;Carriage</span> | <span style="writing-mode: vertical-rl; text-orientation: mixed;">X&nbsp;Rail</span> | <span style="writing-mode: vertical-rl; text-orientation: mixed;">Back&nbsp;Frame</span> | <span style="writing-mode: vertical-rl; text-orientation: mixed;">Front&nbsp;Frame</span> | <span style="writing-mode: vertical-rl; text-orientation: mixed;">2 x Y&nbsp;Rail</span> | <span style="writing-mode: vertical-rl; text-orientation: mixed;">Right&nbsp;Y&nbsp;Rail</span> | <span style="writing-mode: vertical-rl; text-orientation: mixed;">Left&nbsp;Y&nbsp;Rail</span> | <span style="writing-mode: vertical-rl; text-orientation: mixed;">Main</span> | <span style="writing-mode: vertical-rl; text-orientation: mixed;">TOTALS</span> |  |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---|
+|  |  |  |  |  |  |  |  |  |  | | **Vitamins** |
+| &nbsp;&nbsp;24&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; |  &nbsp;&nbsp;24&nbsp; | &nbsp;&nbsp; Ball bearing F623-2RS 3mm x 10mm x 4mm |
+| &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;1&nbsp; |  &nbsp;&nbsp;1&nbsp; | &nbsp;&nbsp; Belt GT2 x 6mm x 1514mm |
+| &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;1&nbsp; |  &nbsp;&nbsp;1&nbsp; | &nbsp;&nbsp; Belt GT2 x 6mm x 1514mm |
+| &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;1&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; |  &nbsp;&nbsp;1&nbsp; | &nbsp;&nbsp; Extrusion E2020 x 450mm |
+| &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;2&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; |  &nbsp;&nbsp;2&nbsp; | &nbsp;&nbsp; Extrusion E2040 x 354mm |
+| &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;1&nbsp; | &nbsp;&nbsp;1&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; |  &nbsp;&nbsp;2&nbsp; | &nbsp;&nbsp; Extrusion E2040 x 472mm |
+| &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;4&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; |  &nbsp;&nbsp;4&nbsp; | &nbsp;&nbsp; Heatfit insert M3 x 4mm |
+| &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;1&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; |  &nbsp;&nbsp;1&nbsp; | &nbsp;&nbsp; Linear rail MGN12 x 400mm |
+| &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;2&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; |  &nbsp;&nbsp;2&nbsp; | &nbsp;&nbsp; Linear rail MGN15 x 300mm |
+| &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;1&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; |  &nbsp;&nbsp;1&nbsp; | &nbsp;&nbsp; Linear rail carriage MGN12H |
+| &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;2&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; |  &nbsp;&nbsp;2&nbsp; | &nbsp;&nbsp; Linear rail carriage MGN15H |
+| &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;2&nbsp; |  &nbsp;&nbsp;2&nbsp; | &nbsp;&nbsp; Pulley GT2OB 20 teeth |
+| &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;4&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; |  &nbsp;&nbsp;4&nbsp; | &nbsp;&nbsp; Screw M3 cap x 10mm |
+| &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;2&nbsp; |  &nbsp;&nbsp;2&nbsp; | &nbsp;&nbsp; Stepper motor NEMA17 x 47mm (5x24 shaft) |
+| &nbsp;&nbsp;36&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; |  &nbsp;&nbsp;36&nbsp; | &nbsp;&nbsp; Washer  M3 x 7mm x 0.5mm |
+| &nbsp;&nbsp;60&nbsp; | &nbsp;&nbsp;4&nbsp; | &nbsp;&nbsp;4&nbsp; | &nbsp;&nbsp;3&nbsp; | &nbsp;&nbsp;1&nbsp; | &nbsp;&nbsp;1&nbsp; | &nbsp;&nbsp;6&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;6&nbsp; | &nbsp;&nbsp;85&nbsp; | &nbsp;&nbsp;Total vitamins count |
+|  |  |  |  |  |  |  |  |  |  | | **3D printed parts** |
+| &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;1&nbsp; | &nbsp;&nbsp;.&nbsp; |  &nbsp;&nbsp;1&nbsp; | &nbsp;&nbsp;left_y_carriage.stl |
+| &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;1&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; |  &nbsp;&nbsp;1&nbsp; | &nbsp;&nbsp;right_y_carriage.stl |
+| &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;2&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; |  &nbsp;&nbsp;2&nbsp; | &nbsp;&nbsp;x_belt_clamp.stl |
+| &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;1&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; |  &nbsp;&nbsp;1&nbsp; | &nbsp;&nbsp;x_carriage.stl |
+| &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;1&nbsp; | &nbsp;&nbsp;2&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;1&nbsp; | &nbsp;&nbsp;1&nbsp; | &nbsp;&nbsp;.&nbsp; | &nbsp;&nbsp;5&nbsp; | &nbsp;&nbsp;Total 3D printed parts count |
+
+<span></span>
+[Top](#TOP)
+
+---
+<a name="idler_assembly"></a>
+## 12 x Idler Assembly
+### Vitamins
+|Qty|Description|
+|---:|:----------|
+|24| Ball bearing F623-2RS 3mm x 10mm x 4mm|
+|36| Washer  M3 x 7mm x 0.5mm|
+
+
+### Assembly instructions
+![idler_assembly](assemblies/idler_assembly_tn.png)
+
+![idler_assembled](assemblies/idler_assembled_tn.png)
+
+<span></span>
+[Top](#TOP)
+
+---
+<a name="x_carriage_insert_assembly"></a>
+## X Carriage Insert Assembly
+### Vitamins
+|Qty|Description|
+|---:|:----------|
+|4| Heatfit insert M3 x 4mm|
+
+
+### 3D Printed parts
+
+| 1 x [x_carriage.stl](stls/x_carriage.stl) |
+|---|
+| ![x_carriage.stl](stls/x_carriage.png) 
+
+
+
+### Assembly instructions
+![x_carriage_insert_assembly](assemblies/x_carriage_insert_assembly_tn.png)
+
+![x_carriage_insert_assembled](assemblies/x_carriage_insert_assembled_tn.png)
+
+<span></span>
+[Top](#TOP)
+
+---
+<a name="x_carriage_assembly"></a>
+## X Carriage Assembly
+### Vitamins
+|Qty|Description|
+|---:|:----------|
+|4| Screw M3 cap x 10mm|
+
+
+### 3D Printed parts
+
+| 2 x [x_belt_clamp.stl](stls/x_belt_clamp.stl) |
+|---|
+| ![x_belt_clamp.stl](stls/x_belt_clamp.png) 
+
+
+
+### Sub-assemblies
+
+| 1 x x_carriage_insert_assembly |
+|---|
+| ![x_carriage_insert_assembled](assemblies/x_carriage_insert_assembled_tn.png) 
+
+
+
+### Assembly instructions
+![x_carriage_assembly](assemblies/x_carriage_assembly_tn.png)
+
+![x_carriage_assembled](assemblies/x_carriage_assembled_tn.png)
+
+<span></span>
+[Top](#TOP)
+
+---
+<a name="x_rail_assembly"></a>
+## X Rail Assembly
+### Vitamins
+|Qty|Description|
+|---:|:----------|
+|1| Extrusion E2020 x 450mm|
+|1| Linear rail MGN12 x 400mm|
+|1| Linear rail carriage MGN12H|
+
+
+### Sub-assemblies
+
+| 1 x x_carriage_assembly |
+|---|
+| ![x_carriage_assembled](assemblies/x_carriage_assembled_tn.png) 
+
+
+
+### Assembly instructions
+![x_rail_assembly](assemblies/x_rail_assembly_tn.png)
+
+![x_rail_assembled](assemblies/x_rail_assembled_tn.png)
+
+<span></span>
+[Top](#TOP)
+
+---
+<a name="back_frame_assembly"></a>
+## Back Frame Assembly
+### Vitamins
+|Qty|Description|
+|---:|:----------|
+|1| Extrusion E2040 x 472mm|
+
+
+### Assembly instructions
+![back_frame_assembly](assemblies/back_frame_assembly_tn.png)
+
+![back_frame_assembled](assemblies/back_frame_assembled_tn.png)
+
+<span></span>
+[Top](#TOP)
+
+---
+<a name="front_frame_assembly"></a>
+## Front Frame Assembly
+### Vitamins
+|Qty|Description|
+|---:|:----------|
+|1| Extrusion E2040 x 472mm|
+
+
+### Assembly instructions
+![front_frame_assembly](assemblies/front_frame_assembly_tn.png)
+
+![front_frame_assembled](assemblies/front_frame_assembled_tn.png)
+
+<span></span>
+[Top](#TOP)
+
+---
+<a name="y_rail_assembly"></a>
+## 2 x Y Rail Assembly
+### Vitamins
+|Qty|Description|
+|---:|:----------|
+|2| Extrusion E2040 x 354mm|
+|2| Linear rail MGN15 x 300mm|
+|2| Linear rail carriage MGN15H|
+
+
+### Assembly instructions
+![y_rail_assembly](assemblies/y_rail_assembly_tn.png)
+
+![y_rail_assembled](assemblies/y_rail_assembled_tn.png)
+
+<span></span>
+[Top](#TOP)
+
+---
+<a name="right_y_rail_assembly"></a>
+## Right Y Rail Assembly
+### 3D Printed parts
+
+| 1 x [right_y_carriage.stl](stls/right_y_carriage.stl) |
+|---|
+| ![right_y_carriage.stl](stls/right_y_carriage.png) 
+
+
+
+### Sub-assemblies
+
+| 1 x y_rail_assembly |
+|---|
+| ![y_rail_assembled](assemblies/y_rail_assembled_tn.png) 
+
+
+
+### Assembly instructions
+![right_y_rail_assembly](assemblies/right_y_rail_assembly_tn.png)
+
+![right_y_rail_assembled](assemblies/right_y_rail_assembled_tn.png)
+
+<span></span>
+[Top](#TOP)
+
+---
+<a name="left_y_rail_assembly"></a>
+## Left Y Rail Assembly
+### 3D Printed parts
+
+| 1 x [left_y_carriage.stl](stls/left_y_carriage.stl) |
+|---|
+| ![left_y_carriage.stl](stls/left_y_carriage.png) 
+
+
+
+### Sub-assemblies
+
+| 1 x y_rail_assembly |
+|---|
+| ![y_rail_assembled](assemblies/y_rail_assembled_tn.png) 
+
+
+
+### Assembly instructions
+![left_y_rail_assembly](assemblies/left_y_rail_assembly_tn.png)
+
+![left_y_rail_assembled](assemblies/left_y_rail_assembled_tn.png)
+
+<span></span>
+[Top](#TOP)
+
+---
+<a name="main_assembly"></a>
+## Main Assembly
+### Vitamins
+|Qty|Description|
+|---:|:----------|
+|1| Belt GT2 x 6mm x 1514mm|
+|1| Belt GT2 x 6mm x 1514mm|
+|2| Pulley GT2OB 20 teeth|
+|2| Stepper motor NEMA17 x 47mm (5x24 shaft)|
+
+
+### Sub-assemblies
+
+| 1 x back_frame_assembly | 1 x front_frame_assembly | 12 x idler_assembly |
+|---|---|---|
+| ![back_frame_assembled](assemblies/back_frame_assembled_tn.png) | ![front_frame_assembled](assemblies/front_frame_assembled_tn.png) | ![idler_assembled](assemblies/idler_assembled_tn.png) 
+
+
+| 1 x left_y_rail_assembly | 1 x right_y_rail_assembly | 1 x x_rail_assembly |
+|---|---|---|
+| ![left_y_rail_assembled](assemblies/left_y_rail_assembled_tn.png) | ![right_y_rail_assembled](assemblies/right_y_rail_assembled_tn.png) | ![x_rail_assembled](assemblies/x_rail_assembled_tn.png) 
+
+
+
+### Assembly instructions
+![main_assembly](assemblies/main_assembly_tn.png)
+
+Insert PSU
+
+![main_assembled](assemblies/main_assembled_tn.png)
+
+<span></span>
+[Top](#TOP)

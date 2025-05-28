@@ -1,0 +1,9 @@
+x_carriage_assembly:
+Vitamins:
+  4 Screw M3 cap x 10mm
+
+Printed:
+  2 x_belt_clamp.stl
+
+Assemblies:
+  1 x_carriage_insert_assembly
