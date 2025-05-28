@@ -1,0 +1,16 @@
+left_motor_assembly:
+Vitamins:
+  1 Stepper motor NEMA17 x 47mm (5x24 shaft)
+  1 Pulley GT2OB 20 teeth
+  4 Screw M3 cap x 35mm
+  5 Screw M4 flanged x 10mm
+  4 Washer  M3 x 7mm x 0.5mm
+  5 Washer  M4 x 9mm x 0.8mm
+
+Printed:
+  1 left_lower_motor_mount.stl
+  1 left_motor_mount.stl
+
+Assemblies:
+  1 double_idler_assembly
+  1 idler_assembly

@@ -4,17 +4,123 @@
         "big": null,
         "ngb": false,
         "zoomed": 0,
-        "count": 12,
+        "count": 8,
         "assemblies": {},
         "vitamins": {
             "washer(M3_washer): Washer  M3 x 7mm x 0.5mm": {
-                "count": 36
+                "count": 24
             },
             "ball_bearing(BBF623): Ball bearing F623-2RS 3mm x 10mm x 4mm": {
-                "count": 24
+                "count": 16
             }
         },
         "printed": {},
+        "routed": {}
+    },
+    {
+        "name": "double_idler_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 2,
+        "assemblies": {},
+        "vitamins": {
+            "washer(M3_washer): Washer  M3 x 7mm x 0.5mm": {
+                "count": 14
+            },
+            "ball_bearing(BBF623): Ball bearing F623-2RS 3mm x 10mm x 4mm": {
+                "count": 8
+            }
+        },
+        "printed": {},
+        "routed": {}
+    },
+    {
+        "name": "right_motor_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 1,
+        "assemblies": {
+            "double_idler_assembly": 1,
+            "idler_assembly": 1
+        },
+        "vitamins": {
+            "pulley(GT2x20ob_pulley): Pulley GT2OB 20 teeth": {
+                "count": 1
+            },
+            "NEMA(NEMA17_47): Stepper motor NEMA17 x 47mm (5x24 shaft)": {
+                "count": 1
+            },
+            "washer(M3_washer): Washer  M3 x 7mm x 0.5mm": {
+                "count": 4
+            },
+            "screw(M3_cap_screw, 35): Screw M3 cap x 35mm": {
+                "count": 4
+            },
+            "washer(M4_washer): Washer  M4 x 9mm x 0.8mm": {
+                "count": 5
+            },
+            "screw(M4_flanged_screw, 10): Screw M4 flanged x 10mm": {
+                "count": 5
+            }
+        },
+        "printed": {
+            "right_motor_mount.stl": {
+                "count": 1,
+                "colour": "[0, 0.572549, 0]",
+                "camera": "0,0,0,70,0,315,500"
+            },
+            "right_lower_motor_mount.stl": {
+                "count": 1,
+                "colour": "[0, 0.572549, 0]",
+                "camera": "0,0,0,70,0,315,500"
+            }
+        },
+        "routed": {}
+    },
+    {
+        "name": "left_motor_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 1,
+        "assemblies": {
+            "double_idler_assembly": 1,
+            "idler_assembly": 1
+        },
+        "vitamins": {
+            "pulley(GT2x20ob_pulley): Pulley GT2OB 20 teeth": {
+                "count": 1
+            },
+            "NEMA(NEMA17_47): Stepper motor NEMA17 x 47mm (5x24 shaft)": {
+                "count": 1
+            },
+            "washer(M3_washer): Washer  M3 x 7mm x 0.5mm": {
+                "count": 4
+            },
+            "screw(M3_cap_screw, 35): Screw M3 cap x 35mm": {
+                "count": 4
+            },
+            "washer(M4_washer): Washer  M4 x 9mm x 0.8mm": {
+                "count": 5
+            },
+            "screw(M4_flanged_screw, 10): Screw M4 flanged x 10mm": {
+                "count": 5
+            }
+        },
+        "printed": {
+            "left_motor_mount.stl": {
+                "count": 1,
+                "colour": "[0, 0.572549, 0]",
+                "camera": "0,0,0,70,0,315,500"
+            },
+            "left_lower_motor_mount.stl": {
+                "count": 1,
+                "colour": "[0, 0.572549, 0]",
+                "camera": "0,0,0,70,0,315,500"
+            }
+        },
         "routed": {}
     },
     {
@@ -185,19 +291,15 @@
             "front_frame_assembly": 1,
             "back_frame_assembly": 1,
             "x_rail_assembly": 1,
-            "idler_assembly": 12
+            "idler_assembly": 6,
+            "left_motor_assembly": 1,
+            "right_motor_assembly": 1
         },
         "vitamins": {
-            "belt(GT2x6, [[30, -29.69, 0], [24.88, -26.57, 2.88], [221.69, -18, -5.69], [221.69, 149.31, -5.69], [-191.69, 149.31, -5.69], [-206.2, 138.2, 6.8], [-221.69, 149.31, -5.69], [-221.69, -142.69, -5.69], [-210.31, -29.38, 5.69], [-24.88, -26.57, 2.88], [-30, -29.69, 0]]): Belt GT2 x 6mm x 1514mm": {
+            "belt(GT2x6, [[30, -29.69, 0], [24.88, -26.57, 2.88], [221.69, -18, -5.69], [221.69, 148.31, -5.69], [-190.69, 148.31, -5.69], [-206.2, 131.7, 6.8], [-221.69, 148.31, -5.69], [-221.69, -142.69, -5.69], [-210.31, -29.38, 5.69], [-24.88, -26.57, 2.88], [-30, -29.69, 0]]): Belt GT2 x 6mm x 1522mm": {
                 "count": 1
             },
-            "pulley(GT2x20ob_pulley): Pulley GT2OB 20 teeth": {
-                "count": 2
-            },
-            "NEMA(NEMA17_47): Stepper motor NEMA17 x 47mm (5x24 shaft)": {
-                "count": 2
-            },
-            "belt(GT2x6, [[30, -29.69, 0], [24.88, -26.57, 2.88], [210.31, -29.38, 5.69], [221.69, -142.69, -5.69], [221.69, 149.31, -5.69], [206.2, 138.2, 6.8], [191.69, 149.31, -5.69], [-221.69, 149.31, -5.69], [-221.69, -18, -5.69], [-24.88, -26.57, 2.88], [-30, -29.69, 0]]): Belt GT2 x 6mm x 1514mm": {
+            "belt(GT2x6, [[30, -29.69, 0], [24.88, -26.57, 2.88], [210.31, -29.38, 5.69], [221.69, -142.69, -5.69], [221.69, 148.31, -5.69], [206.2, 131.7, 6.8], [190.69, 148.31, -5.69], [-221.69, 148.31, -5.69], [-221.69, -18, -5.69], [-24.88, -26.57, 2.88], [-30, -29.69, 0]]): Belt GT2 x 6mm x 1522mm": {
                 "count": 1
             }
         },
