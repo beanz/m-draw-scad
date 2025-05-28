@@ -1,0 +1,207 @@
+[
+    {
+        "name": "idler_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 12,
+        "assemblies": {},
+        "vitamins": {
+            "washer(M3_washer): Washer  M3 x 7mm x 0.5mm": {
+                "count": 36
+            },
+            "ball_bearing(BBF623): Ball bearing F623-2RS 3mm x 10mm x 4mm": {
+                "count": 24
+            }
+        },
+        "printed": {},
+        "routed": {}
+    },
+    {
+        "name": "x_carriage_insert_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 1,
+        "assemblies": {},
+        "vitamins": {
+            "insert(M3 Voron Insert): Heatfit insert M3 x 4mm": {
+                "count": 4
+            }
+        },
+        "printed": {
+            "x_carriage.stl": {
+                "count": 1,
+                "colour": "[0, 0.572549, 0]",
+                "camera": "0,0,0,70,0,315,500"
+            }
+        },
+        "routed": {}
+    },
+    {
+        "name": "x_carriage_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 1,
+        "assemblies": {
+            "x_carriage_insert_assembly": 1
+        },
+        "vitamins": {
+            "screw(M3_cap_screw, 10): Screw M3 cap x 10mm": {
+                "count": 4
+            }
+        },
+        "printed": {
+            "x_belt_clamp.stl": {
+                "count": 2,
+                "colour": "[0, 0.572549, 0]",
+                "camera": "0,0,0,70,0,315,500"
+            }
+        },
+        "routed": {}
+    },
+    {
+        "name": "x_rail_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 1,
+        "assemblies": {
+            "x_carriage_assembly": 1
+        },
+        "vitamins": {
+            "rail(MGN12, 400): Linear rail MGN12 x 400mm": {
+                "count": 1
+            },
+            "carriage(MGN12H_carriage): Linear rail carriage MGN12H": {
+                "count": 1
+            },
+            "extrusion(E2020, 450): Extrusion E2020 x 450mm": {
+                "count": 1
+            }
+        },
+        "printed": {},
+        "routed": {}
+    },
+    {
+        "name": "back_frame_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 1,
+        "assemblies": {},
+        "vitamins": {
+            "extrusion(E2040, 472): Extrusion E2040 x 472mm": {
+                "count": 1
+            }
+        },
+        "printed": {},
+        "routed": {}
+    },
+    {
+        "name": "front_frame_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 1,
+        "assemblies": {},
+        "vitamins": {
+            "extrusion(E2040, 472): Extrusion E2040 x 472mm": {
+                "count": 1
+            }
+        },
+        "printed": {},
+        "routed": {}
+    },
+    {
+        "name": "y_rail_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 2,
+        "assemblies": {},
+        "vitamins": {
+            "rail(MGN15, 300): Linear rail MGN15 x 300mm": {
+                "count": 2
+            },
+            "carriage(MGN15H_carriage): Linear rail carriage MGN15H": {
+                "count": 2
+            },
+            "extrusion(E2040, 354): Extrusion E2040 x 354mm": {
+                "count": 2
+            }
+        },
+        "printed": {},
+        "routed": {}
+    },
+    {
+        "name": "right_y_rail_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 1,
+        "assemblies": {
+            "y_rail_assembly": 1
+        },
+        "vitamins": {},
+        "printed": {
+            "right_y_carriage.stl": {
+                "count": 1,
+                "colour": "[0, 0.572549, 0]",
+                "camera": "0,0,0,70,0,315,500"
+            }
+        },
+        "routed": {}
+    },
+    {
+        "name": "left_y_rail_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 1,
+        "assemblies": {
+            "y_rail_assembly": 1
+        },
+        "vitamins": {},
+        "printed": {
+            "left_y_carriage.stl": {
+                "count": 1,
+                "colour": "[0, 0.572549, 0]",
+                "camera": "0,0,0,70,0,315,500"
+            }
+        },
+        "routed": {}
+    },
+    {
+        "name": "main_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 1,
+        "assemblies": {
+            "left_y_rail_assembly": 1,
+            "right_y_rail_assembly": 1,
+            "front_frame_assembly": 1,
+            "back_frame_assembly": 1,
+            "x_rail_assembly": 1,
+            "idler_assembly": 12
+        },
+        "vitamins": {
+            "belt(GT2x6, [[30, -29.69, 0], [24.88, -26.57, 2.88], [221.69, -18, -5.69], [221.69, 149.31, -5.69], [-191.69, 149.31, -5.69], [-206.2, 138.2, 6.8], [-221.69, 149.31, -5.69], [-221.69, -142.69, -5.69], [-210.31, -29.38, 5.69], [-24.88, -26.57, 2.88], [-30, -29.69, 0]]): Belt GT2 x 6mm x 1514mm": {
+                "count": 1
+            },
+            "pulley(GT2x20ob_pulley): Pulley GT2OB 20 teeth": {
+                "count": 2
+            },
+            "NEMA(NEMA17_47): Stepper motor NEMA17 x 47mm (5x24 shaft)": {
+                "count": 2
+            },
+            "belt(GT2x6, [[30, -29.69, 0], [24.88, -26.57, 2.88], [210.31, -29.38, 5.69], [221.69, -142.69, -5.69], [221.69, 149.31, -5.69], [206.2, 138.2, 6.8], [191.69, 149.31, -5.69], [-221.69, 149.31, -5.69], [-221.69, -18, -5.69], [-24.88, -26.57, 2.88], [-30, -29.69, 0]]): Belt GT2 x 6mm x 1514mm": {
+                "count": 1
+            }
+        },
+        "printed": {},
+        "routed": {}
+    }
+]

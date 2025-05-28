@@ -1,0 +1,6 @@
+right_y_rail_assembly:
+Printed:
+  1 right_y_carriage.stl
+
+Assemblies:
+  1 y_rail_assembly
