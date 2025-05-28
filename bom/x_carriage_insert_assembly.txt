@@ -1,0 +1,6 @@
+x_carriage_insert_assembly:
+Vitamins:
+  4 Heatfit insert M3 x 4mm
+
+Printed:
+  1 x_carriage.stl

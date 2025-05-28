@@ -1,0 +1,51 @@
+Vitamins:
+                      X      
+                             
+                      c      
+                      a      
+                      r      
+                R     r      
+    F     L     i     i      
+ B  r     e     g  X  a      
+ a  o     f     h     g      
+ c  n     t     t  c  e      
+ k  t              a         
+          y     y  r  i  X  Y
+ f  f  I           r  n      
+ r  r  d  r  M  r  i  s  r  r
+ a  a  l  a  a  a  a  e  a  a
+ m  m  e  i  i  i  g  r  i  i
+ e  e  r  l  n  l  e  t  l  l
+  |  |  |  | 2|  |  |  |  |  |  2 Stepper motor NEMA17 x 47mm (5x24 shaft)
+  |  |24|  |  |  |  |  |  |  | 24 Ball bearing F623-2RS 3mm x 10mm x 4mm
+  |  |  |  | 1|  |  |  |  |  |  1 Belt GT2 x 6mm x 1514mm
+  |  |  |  | 1|  |  |  |  |  |  1 Belt GT2 x 6mm x 1514mm
+  |  |  |  |  |  |  |  | 1|  |  1 Linear rail carriage MGN12H
+  |  |  |  |  |  |  |  |  | 2|  2 Linear rail carriage MGN15H
+  |  |  |  |  |  |  |  | 1|  |  1 Extrusion E2020 x 450mm
+  |  |  |  |  |  |  |  |  | 2|  2 Extrusion E2040 x 354mm
+ 1| 1|  |  |  |  |  |  |  |  |  2 Extrusion E2040 x 472mm
+  |  |  |  |  |  |  | 4|  |  |  4 Heatfit insert M3 x 4mm
+  |  |  |  | 2|  |  |  |  |  |  2 Pulley GT2OB 20 teeth
+  |  |  |  |  |  |  |  | 1|  |  1 Linear rail MGN12 x 400mm
+  |  |  |  |  |  |  |  |  | 2|  2 Linear rail MGN15 x 300mm
+  |  |  |  |  |  | 4|  |  |  |  4 Screw M3 cap x 10mm
+  |  |36|  |  |  |  |  |  |  | 36 Washer  M3 x 7mm x 0.5mm
+
+Printed:
+  |  |  | 1|  |  |  |  |  |  |  1 left_y_carriage.stl
+  |  |  |  |  | 1|  |  |  |  |  1 right_y_carriage.stl
+  |  |  |  |  |  | 2|  |  |  |  2 x_belt_clamp.stl
+  |  |  |  |  |  |  | 1|  |  |  1 x_carriage.stl
+
+Assemblies:
+  1 back_frame_assembly
+  1 front_frame_assembly
+ 12 idler_assemblies
+  1 left_y_rail_assembly
+  1 main_assembly
+  1 right_y_rail_assembly
+  1 x_carriage_assembly
+  1 x_carriage_insert_assembly
+  1 x_rail_assembly
+  2 y_rail_assemblies

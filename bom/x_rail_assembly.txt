@@ -1,0 +1,8 @@
+x_rail_assembly:
+Vitamins:
+  1 Linear rail carriage MGN12H
+  1 Extrusion E2020 x 450mm
+  1 Linear rail MGN12 x 400mm
+
+Assemblies:
+  1 x_carriage_assembly

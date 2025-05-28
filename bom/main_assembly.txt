@@ -1,0 +1,14 @@
+main_assembly:
+Vitamins:
+  2 Stepper motor NEMA17 x 47mm (5x24 shaft)
+  1 Belt GT2 x 6mm x 1514mm
+  1 Belt GT2 x 6mm x 1514mm
+  2 Pulley GT2OB 20 teeth
+
+Assemblies:
+  1 back_frame_assembly
+  1 front_frame_assembly
+ 12 idler_assemblies
+  1 left_y_rail_assembly
+  1 right_y_rail_assembly
+  1 x_rail_assembly
