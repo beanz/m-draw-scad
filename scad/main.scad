@@ -10,13 +10,15 @@ module main_assembly()
   assembly("main") {
   tx(-(fw/2-ew*.5)) left_y_rail_assembly();
   tx(fw/2-ew*.5) right_y_rail_assembly();
-  ty(-(fd/2-ew*.5)) front_frame_assembly();
+  ty(-(fd/2)) front_frame_assembly();
   ty(fd/2-ew*.5) back_frame_assembly();
   tz(x_rail_h) x_rail_assembly();
-  tz(top_belt_h) top_belt();
   left_motor_assembly();
-  tz(bottom_belt_h) bottom_belt();
+  //left_idler_assembly();
   right_motor_assembly();
+  right_idler_assembly();
+  tz(top_belt_h) top_belt();
+  tz(bottom_belt_h) bottom_belt();
 }
 
 module left_motor_assembly() assembly("left_motor") {
@@ -127,6 +129,131 @@ module left_lower_motor_mount_stl() stl("left_lower_motor_mount") {
       tyz(fd/2-motor_y-ew, -oz+ew/2) rx(90)
       cylinder(d = screw_clearance_d(ex_print_screw),
                  h = 100, center = true);
+  }
+}
+
+module left_idler_assembly() assembly("left_idler") {
+  ox = ew*2+pbr+3;
+  oy = ew+3+NEMA_width(NEMA17_47)/2;
+  oz = motor_z-2*(motor_z-top_belt_h-idler_h/2)-double_idler_h;
+  txyz(-motor_x, -motor_y, motor_z) {
+    rx(180) left_idler_mount_stl();
+    txyz(-NEMA_hole_pitch(NEMA17_47)/2,
+         -10,
+         -(motor_z-top_belt_h-idler_h/2)-idler_h/2) {
+      front_idler_assembly();
+    }
+    for (x = [ew*.5, 72/2, 72-ew/2]) {
+      txyz(-ox+x, -oy+ew*.5, -(motor_z-ew2-th)) {
+        screw_and_washer(ex_print_screw, 10);
+      }
+    }
+  }
+}
+
+module left_idler_mount_stl() stl("left_idler_mount") {
+  ox = ew*2+pbr+3;
+  oy = ew+3+NEMA_width(NEMA17_47)/2;
+  color(print_color) render() difference() {
+    union() {
+      #ty((ew+3)/2)
+        rrcf([NEMA_width(NEMA17_47)+th, ew+3+NEMA_width(NEMA17_47), th]);
+      txy(-ox/2+(ew+3)/2, oy-ew/2)
+        rrcf([ox+NEMA_width(NEMA17_47)/2+th/2, ew, motor_z-ew2]);
+      myz(NEMA_hole_pitch(NEMA17_47)/2) ty(-NEMA_hole_pitch(NEMA17_47)/2)
+        cylinder(d = washer_diameter(M3_washer),
+                 h = motor_z-top_belt_h-idler_h/2);
+      myz(NEMA_hole_pitch(NEMA17_47)/2) ty(NEMA_hole_pitch(NEMA17_47)/2)
+        cylinder(d = washer_diameter(M3_washer)+th/2,
+                 h = motor_z-top_belt_h-idler_h/2+double_idler_h/2);
+    }
+
+    // extrusion_mount_holes
+    for (x = [ew*.5, 72/2, 72-ew/2]) {
+      txy(-ox+x, oy-ew*.5) {
+        cylinder(d = screw_clearance_d(ex_print_screw),
+                 h = 100, center = true);
+        cylinder(r = screw_head_radius(ex_print_screw)+0.5,
+                 h = motor_z-ew2+th, center = true);
+      }
+    }
+  }
+}
+
+module right_idler_assembly() assembly("right_idler") {
+  ox = ew*2+pbr+3;
+  oy = ew+3+NEMA_width(NEMA17_47)/2;
+  oz = motor_z-2*(motor_z-top_belt_h-idler_h/2)-double_idler_h;
+  txyz(motor_x, -motor_y, ew2) {
+    right_idler_mount_stl();
+    txyz(NEMA_hole_pitch(NEMA17_47)/2,
+         -10,
+         -(ew2-bottom_belt_h-idler_h/2)-idler_h/2) {
+      right_inner_idler_assembly();
+    for (z = [12, -20])
+      tz(z) rx(-90) tz(-4-45/2-nut_thickness(tensioning_nut)/2)
+        nut(tensioning_nut);
+    }
+    for (x = [ew*.5, 72-ew/2]) {
+      txyz(ox-x, -oy+ew*.5, th) {
+        screw_and_washer(ex_print_screw, 10);
+      }
+    }
+    txyz(ox-72+ew/2, -oy+ew*.5, -ew-th) {
+      vflip() screw_and_washer(ex_print_screw, 10);
+    }
+  }
+}
+
+module right_idler_mount_stl() stl("right_idler_mount") {
+  ox = ew*2+pbr+3;
+  oy = ew+3+NEMA_width(NEMA17_47)/2;
+  color(print_color) render() difference() {
+    union() {
+      txy(+ox/2-(ew+3)/2, -oy+ew/2)
+        rrcf([ox+NEMA_width(NEMA17_47)/2+th/2, ew, th]);
+      txyz(NEMA_hole_pitch(NEMA17_47)/2,
+           -10,
+           -(ew2-bottom_belt_h-idler_h/2)-idler_h/2) {
+        tyz(-8,-4) rc([24,34,48]);
+      }
+      txyz(+ox/2-(ew+3)/2-ew/2, -oy+ew/2, -ew-th)
+        rrcf([ox+NEMA_width(NEMA17_47)/2+th/2-ew, ew, th]);
+    }
+
+    // idler slot
+    hull() for (y = [10,-4]) {
+      txyz(NEMA_hole_pitch(NEMA17_47)/2,
+           y-10,
+           -(ew2-bottom_belt_h-idler_h/2)-idler_h/2) {
+        tz(-4) rc([21,21,45]);
+      }
+    }
+    // tensioning screw holes
+    txyz(NEMA_hole_pitch(NEMA17_47)/2,
+           -10,
+           -(ew2-bottom_belt_h-idler_h/2)-idler_h/2) {
+      for (z = [12, -20]) {
+        tz(z) rx(-90) {
+          cylinder(d = screw_clearance_d(tensioning_screw),
+                   h = 80, center = true);
+          tz(-4-45/2-nut_thickness(M4_nut)/2)
+            cylinder(r = nut_radius(M4_nut)+1,
+                     h = nut_thickness(M4_nut) + 1);
+        }
+      }
+    }
+
+    txyz(+ox/2-(ew+3)/2, -oy+ew/2, -ew/2)
+      cc([100, ew, ew]);
+
+    // top extrusion_mount_holes
+    for (x = [ew*.5, 72-ew/2]) {
+      txy(ox-x, -oy+ew*.5) {
+        cylinder(d = screw_clearance_d(ex_print_screw),
+                 h = 100, center = true);
+      }
+    }
   }
 }
 
@@ -312,7 +439,7 @@ module x_carriage_insert_positions() {
 }
 
 module front_frame_assembly() assembly("front_frame") {
-  tz(ew) rz(90) rx(90) extrusion(e2040, fw-ew*2);
+  tz(ew*1.5) ry(90) extrusion(e2040, fw-ew*2);
 }
 
 module back_frame_assembly() assembly("back_frame") {
@@ -715,6 +842,46 @@ module right_lower_y_carriage_stl() stl("right_lower_y_carriage") {
   }
 }
 
+module right_inner_idler_assembly() assembly("right_inner_idler") {
+  idler_assembly();
+  front_idler_stl();
+  for (z = [12, -20])
+    tz(z) rx(-90) tz(10) screw(tensioning_screw, 45);
+  tz(-8.5) vflip() screw(idler_screw, 16);
+}
+
+module front_idler_stl() stl("front_idler") {
+  color(print_color) render() difference() {
+    tz(-4) rc([20,20,44]);
+    // belt hole
+    hull() {
+      cylinder(d = 15, h = idler_h+1, center = true);
+      ty(10) cylinder(d = 15, h = idler_h+1, center = true);
+    }
+
+    // axle hole
+    hull() {
+      cylinder(d = 3.5, h = 16, center = true);
+      ty(-10) cylinder(d = 3.5, h = 16, center = true);
+    }
+
+    // axle hole - screw head
+    tz(-8-(screw_head_height(idler_screw)+1)/2) hull() {
+      cylinder(r = screw_head_radius(idler_screw)+.5,
+        h = screw_head_height(idler_screw)+1, center = true);
+      ty(-10) cylinder(r = screw_head_radius(idler_screw)+.5,
+        h = screw_head_height(idler_screw)+1, center = true);
+    }
+
+    // tensioning screw holes
+    for (z = [12, -20]) {
+      tz(z) rx(-90)
+        cylinder(d = screw_clearance_d(tensioning_screw),
+                 h = 100, center = true);
+    }
+  }
+}
+
 module idler_assembly() assembly("idler") {
   tz(-washer_h(M3_washer)/2) washer(M3_washer);
   mxy(washer_h(M3_washer)/2) {
@@ -749,14 +916,11 @@ module double_idler_assembly() assembly("double_idler") {
 }
 
 module bottom_belt() {
-  nema_spacing = NEMA_hole_pitch(NEMA17_47);
-  txy(+inside_x+bbr, front_y-bbr) idler_assembly();
   belt(GT2x6, belt_path, open = true, auto_twist = false,
        belt_colour = bottom_belt_color);
 }
 
 module top_belt() {
-  txy(-inside_x-bbr, front_y-bbr) idler_assembly();
   path = [
     [-belt_path[10][0], belt_path[10][1], belt_path[10][2]],
     [-belt_path[9][0], belt_path[9][1], belt_path[9][2]],
@@ -778,6 +942,9 @@ if ($preview) {
   $explode = 0;
   main_assembly();
   //left_motor_assembly();
+  //right_motor_assembly();
+  //left_idler_assembly();
+  //right_idler_assembly();
   //x_rail_assembly();
   //x_carriage_assembly();
   //left_y_carriage_assembly();
