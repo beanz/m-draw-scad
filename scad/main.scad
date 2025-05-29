@@ -331,6 +331,23 @@ module left_y_rail_assembly() assembly("left_y_rail") {
   y_rail_assembly();
   tz(ew*2+y_car_h) ty(pos[1]-15) rz(90) {
     left_y_carriage_assembly();
+    
+    // carriage screws
+    tz(-y_car_h+th) carriage_hole_positions(y_car) {
+      screw_and_washer(carriage_screw(y_car), 10);
+    }
+  }
+}
+
+module right_y_rail_assembly() assembly("right_y_rail") {
+  y_rail_assembly();
+  tz(ew*2+y_car_h) ty(pos[1]-15) rz(90) {
+    right_y_carriage_assembly();
+
+    // carriage screws
+    tz(-y_car_h+th) carriage_hole_positions(y_car) {
+      screw_and_washer(carriage_screw(y_car), 10);
+    }
   }
 }
 
@@ -350,29 +367,31 @@ module left_y_carriage_assembly() assembly("left_y_carriage") {
       ew*2+y_car_h-bottom_belt_h,
     ],
   ];
+  i_h = [
+    idlers[0][2]+th-idler_h/2,
+    idlers[1][2]+th-idler_h/2,
+  ];
   ext = [(ew+th*2)/2, x_bar_l/2-(fw/2-ew*.5), th-rail_offset];
   tz(th) {
-    // extrusion screw
+    // top extrusion screw
     txy(ext[0], ext[1]-8)
       screw(ex_print_screw, 16);
 
-    // carriage holes
-    tz(-y_car_h) carriage_hole_positions(y_car) {
-      screw_and_washer(carriage_screw(y_car), 10);
-    }
+    // bottom extrusion screw
+    txyz(ext[0], ext[1]-8, -rail_offset-ew/2-th)
+      vflip() screw(ex_print_screw, 10);
 
-    // idler_screws
+    // idler screws
     for (i = idlers) txy(-i[1], -i[0]) {
       screw_and_washer(idler_screw, 45);
       tz(-rail_offset-ew/2-th) vflip() nut_and_washer(M4_nut);
     }
-  }
-}
 
-module right_y_rail_assembly() assembly("right_y_rail") {
-  y_rail_assembly();
-  tz(ew*2+y_car_h) ty(pos[1]-15) rz(90) {
-    right_y_carriage_stl();
+    // idlers
+    txyz(-idlers[0][1], -idlers[0][0], -i_h[0]-idler_h/2)
+      idler_assembly();
+    txyz(-idlers[1][1], -idlers[1][0], -i_h[1]-idler_h/2)
+      idler_assembly();
   }
 }
 
@@ -438,7 +457,7 @@ module left_y_carriage_stl() stl("left_y_carriage") {
                  h = 100, center = true);
       }
 
-      // idler_screws
+      // idler screws
       for (i = idlers) {
         txy(-i[1], -i[0])
           cylinder(d = screw_clearance_d(idler_screw),
@@ -503,7 +522,7 @@ module left_lower_y_carriage_stl() stl("left_lower_y_carriage") {
         cylinder(d = screw_clearance_d(ex_print_screw),
                  h = 100, center = true);
 
-      // idler_screws
+      // idler screws
       for (i = idlers) {
         txy(-i[1], -i[0])
           cylinder(d = screw_clearance_d(idler_screw),
@@ -513,14 +532,184 @@ module left_lower_y_carriage_stl() stl("left_lower_y_carriage") {
   }
 }
 
-module right_y_carriage_stl() stl("right_y_carriage") {
+module right_y_carriage_assembly() assembly("right_y_carriage") {
+  right_y_carriage_stl();
+  right_lower_y_carriage_stl();
+  
+  rail_offset = th+ew*2+y_car_h-x_rail_h-ew/2;
   overhang = 20;
+  idlers = [
+    [ fw/2-ew*.5-belt_path[2][0],
+      pos[1]-15-belt_path[2][1],
+      ew*2+y_car_h-top_belt_h,
+    ],
+    [ fw/2-ew*.5+belt_path[8][0],
+      pos[1]-15-belt_path[8][1],
+      ew*2+y_car_h-bottom_belt_h,
+    ],
+  ];
+  i_h = [
+    idlers[0][2]+th-idler_h/2,
+    idlers[1][2]+th-idler_h/2,
+  ];
+  ext = [(ew+th*2)/2, x_bar_l/2-(fw/2-ew*.5), th-rail_offset];
+  tz(th) {
+    // top extrusion screw
+    txy(ext[0], -(ext[1]-8))
+      screw(ex_print_screw, 16);
+
+    // bottom extrusion screw
+    txyz(ext[0], -(ext[1]-8), -rail_offset-ew/2-th)
+      vflip() screw(ex_print_screw, 10);
+
+    // idler screws
+    for (i = idlers) txy(-i[1], i[0]) {
+      screw_and_washer(idler_screw, 45);
+      tz(-rail_offset-ew/2-th) vflip() nut_and_washer(M4_nut);
+    }
+
+    // idlers
+    txyz(-idlers[0][1], idlers[0][0], -i_h[1]-idler_h/2)
+      idler_assembly();
+    txyz(-idlers[1][1], idlers[1][0], -i_h[0]-idler_h/2)
+      idler_assembly();
+  }
+}
+
+module right_y_carriage_stl() stl("right_y_carriage") {
+  rail_offset = th+ew*2+y_car_h-x_rail_h-ew/2;
+  overhang = 20;
+  idlers = [
+    [ fw/2-ew*.5-belt_path[2][0],
+      pos[1]-15-belt_path[2][1],
+      ew*2+y_car_h-top_belt_h,
+    ],
+    [ fw/2-ew*.5+belt_path[8][0],
+      pos[1]-15-belt_path[8][1],
+      ew*2+y_car_h-bottom_belt_h,
+    ],
+  ];
+  i_h = [
+    idlers[0][2]+th-idler_h/2,
+    idlers[1][2]+th-idler_h/2,
+  ];
+  ext = [(ew+th*2)/2, x_bar_l/2-(fw/2-ew*.5), th-rail_offset];
   color(print_color) render() {
     difference() {
-      ty(overhang/2) rrcf([y_car_l,y_car_w+overhang,th]);
+      union() {
+        txy((ew+th*2)/2, +overhang/2)
+          rrcf([ew+th*2, y_car_w+overhang, th]);
+        difference() {
+          txyz((ew+th*2)/2,
+               (y_car_w/2+overhang-(overhang-4)/2),
+               -rail_offset+th)
+            rrcf([ew+th*2, overhang-4, rail_offset]);
+          txyz(-idlers[1][1], idlers[1][0], -i_h[0])
+            cylinder(d = bbr*2+3,
+                     h = idler_h+th/2, center = true);
+        }
+        hull() {
+          rrcf([y_car_l, y_car_w, th]);
+          txy((ew+th*2)/2, y_car_w/2+overhang-(overhang-4)/2)
+            rrcf([ew+th*2, overhang-4, th]);
+          txy(-idlers[0][1], idlers[0][0])
+            cylinder(d = bbr+th*2, h = th);
+        }
+
+        // idler pillars
+        txyz(-idlers[0][1], idlers[0][0], th-i_h[1])
+          cylinder(d = washer_diameter(M3_washer), h = i_h[1]);
+        txyz(-idlers[1][1], idlers[1][0], th-i_h[0])
+          cylinder(d = washer_diameter(M3_washer), h = i_h[0]);
+      }
+
+      // extrusion cut
+      txyz(ext[0], -(0.5+ext[1]-40/2), ext[2])
+        cc([20.5, 40, 20.5]);
+
+      // extrusion screw
+      txy(ext[0], -(ext[1]-8))
+        cylinder(d = screw_clearance_d(ex_print_screw),
+                 h = 100, center = true);
+
+      // carriage holes
       carriage_hole_positions(y_car) {
         cylinder(d = screw_clearance_d(carriage_screw(y_car)),
                  h = 100, center = true);
+      }
+
+      // idler screws
+      for (i = idlers) {
+        txy(-i[1], i[0])
+          cylinder(d = screw_clearance_d(idler_screw),
+                   h = 100, center = true);
+      }
+    }
+  }
+}
+
+module right_lower_y_carriage_stl() stl("right_lower_y_carriage") {
+  rail_offset = th+ew*2+y_car_h-x_rail_h-ew/2;
+  overhang = 20;
+  idlers = [
+    [ fw/2-ew*.5-belt_path[2][0],
+      pos[1]-15-belt_path[2][1],
+      ew*2+y_car_h-top_belt_h,
+    ],
+    [ fw/2-ew*.5+belt_path[8][0],
+      pos[1]-15-belt_path[8][1],
+      ew*2+y_car_h-bottom_belt_h,
+    ],
+  ];
+  i_h = [
+    idlers[0][2]+th-idler_h/2,
+    idlers[1][2]+th-idler_h/2,
+  ];
+  ext = [(ew+th*2)/2, x_bar_l/2-(fw/2-ew*.5), th-rail_offset];
+  color(alt_print_color) render() {
+    difference() {
+      union() {
+        difference() {
+          txyz((ew+th*2)/2,
+                y_car_w/2+overhang-(overhang-4)/2,
+                -rail_offset-ew/2)
+            rrcf([ew+th*2, overhang-4, ew/2+th]);
+          txyz(-idlers[1][1], idlers[1][0], -i_h[0])
+            cylinder(d = bbr*2+3,
+                     h = idler_h+th/2, center = true);
+        }
+        tz(-rail_offset-ew/2) hull() {
+          txy((ew+th*2)/2, y_car_w/2+overhang-(overhang-4)/2)
+            rrcf([ew+th*2, overhang-4, th]);
+          txy(-idlers[0][1], idlers[0][0])
+            cylinder(d = bbr+th*2, h = th);
+          txy(-idlers[1][1], idlers[1][0])
+            cylinder(d = bbr+th*2, h = th);
+        }
+
+        // idler pillars
+        txyz(-idlers[0][1], idlers[0][0], -rail_offset-ew/2)
+          cylinder(d = washer_diameter(M3_washer),
+                   h = rail_offset+ew/2+th-(i_h[1]+idler_h));
+        txyz(-idlers[1][1], idlers[1][0], -rail_offset-ew/2)
+          cylinder(d = washer_diameter(M3_washer),
+                   h = rail_offset+ew/2+th-(i_h[0]+idler_h));
+      }
+
+      // extrusion cut
+      txyz(ext[0], -(0.5+ext[1]-40/2), ext[2])
+        cc([20.5, 40, 20.5]);
+
+      // extrusion screw
+      txy(ext[0], -(ext[1]-8))
+        cylinder(d = screw_clearance_d(ex_print_screw),
+                 h = 100, center = true);
+
+      // idler screws
+      for (i = idlers) {
+        txy(-i[1], i[0])
+          cylinder(d = screw_clearance_d(idler_screw),
+                   h = 100, center = true);
       }
     }
   }
@@ -559,20 +748,15 @@ module double_idler_assembly() assembly("double_idler") {
   }
 }
 
-
 module bottom_belt() {
   nema_spacing = NEMA_hole_pitch(NEMA17_47);
-  txy(+inside_x-bbr, pos[1]+car_y-bbr) idler_assembly();
   txy(+inside_x+bbr, front_y-bbr) idler_assembly();
-  txy(-inside_x-bbr, pos[1]+car_y+bbr) idler_assembly();
   belt(GT2x6, belt_path, open = true, auto_twist = false,
        belt_colour = bottom_belt_color);
 }
 
 module top_belt() {
-  txy(-inside_x+bbr, pos[1]+car_y-bbr) idler_assembly();
   txy(-inside_x-bbr, front_y-bbr) idler_assembly();
-  txy(inside_x+bbr, pos[1]+car_y+bbr) idler_assembly();
   path = [
     [-belt_path[10][0], belt_path[10][1], belt_path[10][2]],
     [-belt_path[9][0], belt_path[9][1], belt_path[9][2]],
@@ -596,6 +780,8 @@ if ($preview) {
   //left_motor_assembly();
   //x_rail_assembly();
   //x_carriage_assembly();
+  //left_y_carriage_assembly();
+  //right_y_carriage_assembly();
   //double_idler_assembly();
 }
 
