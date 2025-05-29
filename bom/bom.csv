@@ -1,5 +1,5 @@
 'Stepper motor NEMA17 x 47mm (5x24 shaft)',  2
-'Ball bearing F623-2RS 3mm x 10mm x 4mm', 22
+'Ball bearing F623-2RS 3mm x 10mm x 4mm', 24
 'Belt GT2 x 6mm x 1522mm',  1
 'Belt GT2 x 6mm x 1522mm',  1
 'Linear rail carriage MGN12H',  1
@@ -8,17 +8,17 @@
 'Extrusion E2040 x 354mm',  2
 'Extrusion E2040 x 472mm',  2
 'Heatfit insert M3 x 4mm',  4
-'Nut M4 x 3.2mm ',  2
+'Nut M4 x 3.2mm ',  4
 'Nut M4 x 3.2mm ',  4
 'Pulley GT2OB 20 teeth',  2
 'Linear rail MGN12 x 400mm',  1
 'Linear rail MGN15 x 300mm',  2
 'Screw M3 cap x 10mm', 12
-'Screw M3 cap x 16mm',  1
+'Screw M3 cap x 16mm',  2
 'Screw M3 cap x 35mm',  8
 'Screw M3 cap x 45mm',  4
-'Screw M4 flanged x 10mm', 15
+'Screw M4 flanged x 10mm', 18
 'Screw M4 flanged x 16mm',  2
-'Screw M4 flanged x 45mm',  2
-'Washer  M3 x 7mm x 0.5mm', 55
-'Washer  M4 x 9mm x 0.8mm', 17
+'Screw M4 flanged x 45mm',  4
+'Washer  M3 x 7mm x 0.5mm', 58
+'Washer  M4 x 9mm x 0.8mm', 14
