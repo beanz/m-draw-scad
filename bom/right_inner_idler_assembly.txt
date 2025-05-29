@@ -1,0 +1,10 @@
+right_inner_idler_assembly:
+Vitamins:
+  1 Screw M3 cap x 16mm
+  2 Screw M4 flanged x 45mm
+
+Printed:
+  1 front_idler.stl
+
+Assemblies:
+  1 idler_assembly

@@ -4,17 +4,72 @@
         "big": null,
         "ngb": false,
         "zoomed": 0,
-        "count": 8,
+        "count": 7,
         "assemblies": {},
         "vitamins": {
             "washer(M3_washer): Washer  M3 x 7mm x 0.5mm": {
-                "count": 24
+                "count": 21
             },
             "ball_bearing(BBF623): Ball bearing F623-2RS 3mm x 10mm x 4mm": {
-                "count": 16
+                "count": 14
             }
         },
         "printed": {},
+        "routed": {}
+    },
+    {
+        "name": "right_inner_idler_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 1,
+        "assemblies": {
+            "idler_assembly": 1
+        },
+        "vitamins": {
+            "screw(M4_flanged_screw, 45): Screw M4 flanged x 45mm": {
+                "count": 2
+            },
+            "screw(M3_cap_screw, 16): Screw M3 cap x 16mm": {
+                "count": 1
+            }
+        },
+        "printed": {
+            "front_idler.stl": {
+                "count": 1,
+                "colour": "[0, 0.572549, 0]",
+                "camera": "0,0,0,70,0,315,500"
+            }
+        },
+        "routed": {}
+    },
+    {
+        "name": "right_idler_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 1,
+        "assemblies": {
+            "right_inner_idler_assembly": 1
+        },
+        "vitamins": {
+            "nut(M4_nut): Nut M4 x 3.2mm ": {
+                "count": 2
+            },
+            "washer(M4_washer): Washer  M4 x 9mm x 0.8mm": {
+                "count": 3
+            },
+            "screw(M4_flanged_screw, 10): Screw M4 flanged x 10mm": {
+                "count": 3
+            }
+        },
+        "printed": {
+            "right_idler_mount.stl": {
+                "count": 1,
+                "colour": "[0, 0.572549, 0]",
+                "camera": "0,0,0,70,0,315,500"
+            }
+        },
         "routed": {}
     },
     {
@@ -221,6 +276,49 @@
         "routed": {}
     },
     {
+        "name": "right_y_carriage_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 1,
+        "assemblies": {
+            "idler_assembly": 2
+        },
+        "vitamins": {
+            "screw(M4_flanged_screw, 16): Screw M4 flanged x 16mm": {
+                "count": 1
+            },
+            "screw(M4_flanged_screw, 10): Screw M4 flanged x 10mm": {
+                "count": 1
+            },
+            "washer(M3_washer): Washer  M3 x 7mm x 0.5mm": {
+                "count": 2
+            },
+            "screw(M3_cap_screw, 45): Screw M3 cap x 45mm": {
+                "count": 2
+            },
+            "washer(M4_washer): Washer  M4 x 9mm x 0.8mm": {
+                "count": 2
+            },
+            "nut(M4_nut, nyloc = undef): Nut M4 x 3.2mm ": {
+                "count": 2
+            }
+        },
+        "printed": {
+            "right_y_carriage.stl": {
+                "count": 1,
+                "colour": "[0, 0.572549, 0]",
+                "camera": "0,0,0,70,0,315,500"
+            },
+            "right_lower_y_carriage.stl": {
+                "count": 1,
+                "colour": "[0, 0.572549, 0]",
+                "camera": "0,0,0,70,0,315,500"
+            }
+        },
+        "routed": {}
+    },
+    {
         "name": "y_rail_assembly",
         "big": null,
         "ngb": false,
@@ -248,11 +346,56 @@
         "zoomed": 0,
         "count": 1,
         "assemblies": {
-            "y_rail_assembly": 1
+            "y_rail_assembly": 1,
+            "right_y_carriage_assembly": 1
         },
-        "vitamins": {},
+        "vitamins": {
+            "washer(M3_washer): Washer  M3 x 7mm x 0.5mm": {
+                "count": 4
+            },
+            "screw(M3_cap_screw, 10): Screw M3 cap x 10mm": {
+                "count": 4
+            }
+        },
+        "printed": {},
+        "routed": {}
+    },
+    {
+        "name": "left_y_carriage_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 1,
+        "assemblies": {
+            "idler_assembly": 2
+        },
+        "vitamins": {
+            "screw(M4_flanged_screw, 16): Screw M4 flanged x 16mm": {
+                "count": 1
+            },
+            "screw(M4_flanged_screw, 10): Screw M4 flanged x 10mm": {
+                "count": 1
+            },
+            "washer(M3_washer): Washer  M3 x 7mm x 0.5mm": {
+                "count": 2
+            },
+            "screw(M3_cap_screw, 45): Screw M3 cap x 45mm": {
+                "count": 2
+            },
+            "washer(M4_washer): Washer  M4 x 9mm x 0.8mm": {
+                "count": 2
+            },
+            "nut(M4_nut, nyloc = undef): Nut M4 x 3.2mm ": {
+                "count": 2
+            }
+        },
         "printed": {
-            "right_y_carriage.stl": {
+            "left_y_carriage.stl": {
+                "count": 1,
+                "colour": "[0, 0.572549, 0]",
+                "camera": "0,0,0,70,0,315,500"
+            },
+            "left_lower_y_carriage.stl": {
                 "count": 1,
                 "colour": "[0, 0.572549, 0]",
                 "camera": "0,0,0,70,0,315,500"
@@ -267,16 +410,18 @@
         "zoomed": 0,
         "count": 1,
         "assemblies": {
-            "y_rail_assembly": 1
+            "y_rail_assembly": 1,
+            "left_y_carriage_assembly": 1
         },
-        "vitamins": {},
-        "printed": {
-            "left_y_carriage.stl": {
-                "count": 1,
-                "colour": "[0, 0.572549, 0]",
-                "camera": "0,0,0,70,0,315,500"
+        "vitamins": {
+            "washer(M3_washer): Washer  M3 x 7mm x 0.5mm": {
+                "count": 4
+            },
+            "screw(M3_cap_screw, 10): Screw M3 cap x 10mm": {
+                "count": 4
             }
         },
+        "printed": {},
         "routed": {}
     },
     {
@@ -291,9 +436,9 @@
             "front_frame_assembly": 1,
             "back_frame_assembly": 1,
             "x_rail_assembly": 1,
-            "idler_assembly": 6,
             "left_motor_assembly": 1,
-            "right_motor_assembly": 1
+            "right_motor_assembly": 1,
+            "right_idler_assembly": 1
         },
         "vitamins": {
             "belt(GT2x6, [[30, -29.69, 0], [24.88, -26.57, 2.88], [221.69, -18, -5.69], [221.69, 148.31, -5.69], [-190.69, 148.31, -5.69], [-206.2, 131.7, 6.8], [-221.69, 148.31, -5.69], [-221.69, -142.69, -5.69], [-210.31, -29.38, 5.69], [-24.88, -26.57, 2.88], [-30, -29.69, 0]]): Belt GT2 x 6mm x 1522mm": {
