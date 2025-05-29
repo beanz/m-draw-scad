@@ -124,6 +124,7 @@ module inside_hidden_corner_bracket() {
 }
 
 print_color = [0.7, 0.2, 0.7];
+alt_print_color = [0.7, 0.4, 0.7];
 flex_print_color = [0.7, 0.2, 0.2];
 aluminium_color = grey(50);
 screw_color = grey(80);
