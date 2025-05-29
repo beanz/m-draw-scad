@@ -4,14 +4,14 @@
         "big": null,
         "ngb": false,
         "zoomed": 0,
-        "count": 7,
+        "count": 8,
         "assemblies": {},
         "vitamins": {
             "washer(M3_washer): Washer  M3 x 7mm x 0.5mm": {
-                "count": 21
+                "count": 24
             },
             "ball_bearing(BBF623): Ball bearing F623-2RS 3mm x 10mm x 4mm": {
-                "count": 14
+                "count": 16
             }
         },
         "printed": {},
@@ -35,7 +35,7 @@
             }
         },
         "printed": {
-            "front_idler.stl": {
+            "right_front_idler.stl": {
                 "count": 1,
                 "colour": "[0, 0.572549, 0]",
                 "camera": "0,0,0,70,0,315,500"
@@ -55,9 +55,6 @@
         "vitamins": {
             "nut(M4_nut): Nut M4 x 3.2mm ": {
                 "count": 2
-            },
-            "washer(M4_washer): Washer  M4 x 9mm x 0.8mm": {
-                "count": 3
             },
             "screw(M4_flanged_screw, 10): Screw M4 flanged x 10mm": {
                 "count": 3
@@ -127,6 +124,58 @@
                 "camera": "0,0,0,70,0,315,500"
             },
             "right_lower_motor_mount.stl": {
+                "count": 1,
+                "colour": "[0, 0.572549, 0]",
+                "camera": "0,0,0,70,0,315,500"
+            }
+        },
+        "routed": {}
+    },
+    {
+        "name": "left_inner_idler_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 1,
+        "assemblies": {
+            "idler_assembly": 1
+        },
+        "vitamins": {
+            "screw(M4_flanged_screw, 45): Screw M4 flanged x 45mm": {
+                "count": 2
+            },
+            "screw(M3_cap_screw, 16): Screw M3 cap x 16mm": {
+                "count": 1
+            }
+        },
+        "printed": {
+            "left_front_idler.stl": {
+                "count": 1,
+                "colour": "[0, 0.572549, 0]",
+                "camera": "0,0,0,70,0,315,500"
+            }
+        },
+        "routed": {}
+    },
+    {
+        "name": "left_idler_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 1,
+        "assemblies": {
+            "left_inner_idler_assembly": 1
+        },
+        "vitamins": {
+            "nut(M4_nut): Nut M4 x 3.2mm ": {
+                "count": 2
+            },
+            "screw(M4_flanged_screw, 10): Screw M4 flanged x 10mm": {
+                "count": 3
+            }
+        },
+        "printed": {
+            "left_idler_mount.stl": {
                 "count": 1,
                 "colour": "[0, 0.572549, 0]",
                 "camera": "0,0,0,70,0,315,500"
@@ -437,6 +486,7 @@
             "back_frame_assembly": 1,
             "x_rail_assembly": 1,
             "left_motor_assembly": 1,
+            "left_idler_assembly": 1,
             "right_motor_assembly": 1,
             "right_idler_assembly": 1
         },
