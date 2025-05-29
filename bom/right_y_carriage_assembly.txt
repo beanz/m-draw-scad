@@ -1,0 +1,15 @@
+right_y_carriage_assembly:
+Vitamins:
+  2 Nut M4 x 3.2mm 
+  2 Screw M3 cap x 45mm
+  1 Screw M4 flanged x 10mm
+  1 Screw M4 flanged x 16mm
+  2 Washer  M3 x 7mm x 0.5mm
+  2 Washer  M4 x 9mm x 0.8mm
+
+Printed:
+  1 right_lower_y_carriage.stl
+  1 right_y_carriage.stl
+
+Assemblies:
+  2 idler_assemblies

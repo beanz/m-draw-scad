@@ -6,9 +6,9 @@ Vitamins:
 Assemblies:
   1 back_frame_assembly
   1 front_frame_assembly
-  6 idler_assemblies
   1 left_motor_assembly
   1 left_y_rail_assembly
+  1 right_idler_assembly
   1 right_motor_assembly
   1 right_y_rail_assembly
   1 x_rail_assembly
