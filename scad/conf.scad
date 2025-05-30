@@ -138,6 +138,7 @@ M12_probe_nut_depth = 4;
 M12_probe_nut = ["M12 Probe nut", 12, 17, 4, undef, M12_toothed_washer,
   M12_probe_nut_depth, 0];
 probe_offset = [25, 0, 3]; // Z is position not sensing offset obviously
+front_idler_screw = M3_grub_screw;
 idler_screw = M3_cap_screw;
 motor_screw = M3_cap_screw;
 pcb_mount_screw = M3_cap_screw;
@@ -177,7 +178,6 @@ fd = pd+154;
 //pos = [pw/4, pd/2];
 pos = [0,0];
 y_rail_l = 300;
-y_rail_offset = 22;
 
 x_bar_l = fw-ew*2-22;
 x_rail_l = x_bar_l - 50;
@@ -194,16 +194,27 @@ bbr = (ball_bearing_od(BBF623)+belt_width)/2;
 pbr = (pulley_od(opulley)+belt_width)/2;
 idler_offset = motor_hole_offset-pbr+bbr;
 belt_th = belt_thickness(GT2x6);
+top_belt_h = x_rail_h+ew/2+belt_width(GT2x6)/2+1.5;
+bottom_belt_h = x_rail_h+ew/2-belt_width(GT2x6)/2-1.5;
 car_y = -(ew/2+x_car_h+belt_th/2);
 front_y = -fd/2+ew*2;
 back_y = fd/2-ew-3;
-inside_x = fw/2-ew*2;
-outside_x = fw/2-ew*2+bbr*2;
-motor_x = inside_x-pbr-3;
-motor_y = fd/2-ew-3-NEMA_width(NEMA17_47)/2;
+outside_x = fw/2-ew/2-carriage_width(y_car)/2-1.75;
+//outside_x = fw/2-ew*2+bbr*2;
+inside_x = outside_x-bbr*2;
+motor_x = outside_x-bbr-NEMA_hole_pitch(NEMA17_47)/2;
+motor_y = back_y-NEMA_width(NEMA17_47)/2;
 motor_z = x_rail_h+ew/2+15;
-top_belt_h = x_rail_h+ew/2+belt_width(GT2x6)/2+1.5;
-bottom_belt_h = x_rail_h+ew/2-belt_width(GT2x6)/2-1.5;
+motor_x_offset = fw/2-motor_x;
+motor_y_offset = fd/2-motor_y;
+motor_z_offset = motor_z-2*(motor_z-top_belt_h-idler_h/2)-double_idler_h;
+motor_mount_w = motor_x_offset+NEMA_width(NEMA17_47)/2+th/2;
+//echo(str("mo ", motor_x_offset,
+//         ", ", motor_y_offset,
+//         ", ", motor_z_offset));
+y_car_overhang = 20;
+y_rail_offset = th+ew*2+y_car_h-x_rail_h-ew/2;
+y_car_ext = [(ew+th*2)/2, x_bar_l/2-(fw/2-ew*.5), th-y_rail_offset];
 clamp_r = 3/2+belt_th;
 nema_spacing = NEMA_hole_pitch(NEMA17_47);
 belt_path = [
@@ -218,4 +229,19 @@ belt_path = [
   [-outside_x+bbr, pos[1]+car_y+bbr, -bbr],
   [pos[0]-30+8-clamp_r, pos[1]+car_y-clamp_r, clamp_r],
   [pos[0]-30, pos[1]+car_y-6, 0],
+];
+
+y_car_idlers = [
+  [ fw/2-ew*.5-belt_path[2][0],
+    pos[1]-15-belt_path[2][1],
+    ew*2+y_car_h-top_belt_h,
+  ],
+  [ fw/2-ew*.5+belt_path[8][0],
+    pos[1]-15-belt_path[8][1],
+    ew*2+y_car_h-bottom_belt_h,
+  ],
+];
+y_car_idler_h = [
+  y_car_idlers[0][2]+th-idler_h/2,
+  y_car_idlers[1][2]+th-idler_h/2,
 ];
