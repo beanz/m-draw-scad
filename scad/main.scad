@@ -21,6 +21,59 @@ module main_assembly()
   tz(bottom_belt_h) bottom_belt();
 }
 
+module back_corner() color(print_color) render() {
+  txy(-ew*1.5, -ew) difference() {
+    hull() {
+      ty(ew/2) rrcf([ew*3, ew, th]);
+      tx(ew/2) rrcf([ew*2, ew*2, th]);
+    }
+    mxz(ew/2)
+      cylinder(d = screw_clearance_d(ex_print_screw),
+               h = 100, center = true);
+    txy(-ew, ew/2)
+      cylinder(d = screw_clearance_d(ex_print_screw),
+               h = 100, center = true);
+    tx(ew) mxz(ew/2)
+      cylinder(d = screw_clearance_d(ex_tap_screw),
+               h = 100, center = true);
+  }
+}
+
+module left_back_corner_stl() stl("left_back_corner") {
+  back_corner();
+}
+
+module right_back_corner_stl() stl("right_back_corner") {
+  mirror([1,0,0]) back_corner();
+}
+
+module front_corner() color(print_color) render() {
+  txy(-ew/2, ew) difference() {
+    union() {
+      rrcf([ew, ew*2, th]);
+      txyz(-ew/2, ew/2-th/2, ew/2) ry(90) rrcf([ew, ew+th, th]);
+      txyz(-ew+th/2, 0, ew/2) rx(90) rrcf([ew+th, ew, th]);
+    }
+    mxz(ew/2)
+      cylinder(d = screw_clearance_d(ex_tap_screw),
+               h = 100, center = true);
+    txz(-ew, ew/2)
+      rx(90) cylinder(d = screw_clearance_d(ex_print_screw),
+               h = 100, center = true);
+    tyz(ew/2, ew/2)
+      ry(90) cylinder(d = screw_clearance_d(ex_tap_screw),
+                      h = 100, center = true);
+  }
+}
+
+module left_front_corner_stl() stl("left_front_corner") {
+  front_corner();
+}
+
+module right_front_corner_stl() stl("right_front_corner") {
+  mirror([1,0,0]) front_corner();
+}
+
 module left_motor_assembly() assembly("left_motor") {
   txyz(-motor_x, motor_y, motor_z) {
     rx(180) left_motor_mount_stl();
@@ -300,12 +353,82 @@ module x_carriage_insert_positions() {
   children();
 }
 
-module front_frame_assembly() assembly("front_frame") {
-  tz(ew*1.5) ry(90) extrusion(e2040, fw-ew*2);
+module front_frame_assembly()
+  pose([45, 0, 332], [-258, -25, 47], d = 192, exploded = true)
+  assembly("front_frame") {
+  front_frame_left_assembly();
+  tx(-fw/2) explode([-40, 0, 0], explode_children = true,
+                    offset = [ew*2.2, -ew, ew-th/2]) {
+    rx(90) right_front_corner_stl();
+    txyz(ew-th, -ew/2, ew*1.5) ry(-90) screw(alt_ex_tap_screw, 10);
+    txyz(ew*1.5, -ew/2, ew+2) sliding_t_nut(M4_sliding_t_nut);
+    txyz(ew*1.5, ew/2, ew+2) vflip() sliding_t_nut(M4_sliding_t_nut);
+    txyz(ew*1.5, ew/2, ew*2-2) vflip() sliding_t_nut(M4_sliding_t_nut);
+    txyz(ew*2.5, ew/2, ew*2-2) vflip() sliding_t_nut(M4_sliding_t_nut);
+  }
+  txyz(-fw/2+ew*1.5, -ew/2, ew-th) vflip() screw(ex_print_screw, 10);
 }
 
-module back_frame_assembly() assembly("back_frame") {
+module front_frame_left_assembly()
+  pose([50, 0, 24], [205, 70, -47], d = 213, exploded = true)
+  assembly("front_frame_left") {
+  tz(ew*1.5) ry(90) extrusion(e2040, fw-ew*2);
+  tx(fw/2) explode([40, 0, 0], explode_children = true,
+                   offset = [-ew*2.2, -ew, ew-th/2]) {
+    rx(90) left_front_corner_stl();
+    txyz(-ew+th, -ew/2, ew*1.5) ry(90) screw(alt_ex_tap_screw, 10);
+    txyz(-ew*1.5, -ew/2, ew+2) sliding_t_nut(M4_sliding_t_nut);
+    txyz(-ew*1.5, ew/2, ew+2) sliding_t_nut(M4_sliding_t_nut);
+    txyz(-ew*1.5, ew/2, ew*2-2) vflip() sliding_t_nut(M4_sliding_t_nut);
+    txyz(-ew*2.5, ew/2, ew*2-2) vflip() sliding_t_nut(M4_sliding_t_nut);
+  }
+  txyz(fw/2-ew*1.5, -ew/2, ew-th) vflip() screw(ex_print_screw, 10);
+}
+
+module back_frame_assembly()
+    pose([28, 0, 315], [-307, -68, 181], d = 325, exploded = true)
+    assembly("back_frame") {
+  back_frame_left_assembly();
+  tx(-fw/2) explode([-60, 0, 0], explode_children = true,
+                   offset = [ew*3.2, ew/2, ew-th/2]) {
+    ty(ew/2) rx(-90) right_back_corner_stl();
+    txyz(ew*2.5, 0, ew2-2) vflip() sliding_t_nut(M4_sliding_t_nut);
+    txyz(ew*1.5, 0, ew2-2) vflip() sliding_t_nut(M4_sliding_t_nut);
+    txyz(ew*2.5, +ew/2-2, ew/2) rx(90) sliding_t_nut(M4_sliding_t_nut);
+    txyz(ew*1.5, +ew/2-2, ew/2) rx(90) sliding_t_nut(M4_sliding_t_nut);
+    txyz(ew*1.5, +ew/2-2, ew*1.5) rx(90) sliding_t_nut(M4_sliding_t_nut);
+    txyz(ew*2.5, -ew/2+2, ew/2) rx(-90) sliding_t_nut(M4_sliding_t_nut);
+    txyz(ew*1.5, -ew/2+2, ew/2) rx(-90) sliding_t_nut(M4_sliding_t_nut);
+  }
+  txyz(-fw/2+ew*2.5, ew/2+th, ew/2) explode([0,30,0], false)
+    rx(-90) screw(ex_print_screw, 10);
+  txyz(-fw/2+ew*1.5, ew/2+th, ew/2) explode([0,30,0], false)
+    rx(-90) screw(ex_print_screw, 10);
+  txyz(-fw/2+ew*1.5, ew/2+th, ew*1.5) explode([0,30,0], false)
+    rx(-90) screw(ex_print_screw, 10);
+}
+
+module back_frame_left_assembly()
+    pose([39, 0, 47], [294, -7, 60], d = 325, exploded = true)
+    assembly("back_frame_left") {
   tz(ew) rz(90) rx(90) extrusion(e2040, fw-ew*2);
+  tx(fw/2) explode([60, 0, 0], explode_children = true,
+                   offset = [-ew*3.2, ew/2, ew-th/2]) {
+    ty(ew/2) rx(-90) left_back_corner_stl();
+    txyz(-ew*2.5, 0, ew2-2) vflip() sliding_t_nut(M4_sliding_t_nut);
+    txyz(-ew*1.5, 0, ew2-2) vflip() sliding_t_nut(M4_sliding_t_nut);
+    txyz(-ew*2.5, +ew/2-2, ew/2) rx(90) sliding_t_nut(M4_sliding_t_nut);
+    txyz(-ew*1.5, +ew/2-2, ew/2) rx(90) sliding_t_nut(M4_sliding_t_nut);
+    txyz(-ew*1.5, +ew/2-2, ew*1.5) rx(90) sliding_t_nut(M4_sliding_t_nut);
+    txyz(-ew*2.5, -ew/2+2, ew/2) rx(-90) sliding_t_nut(M4_sliding_t_nut);
+    txyz(-ew*1.5, -ew/2+2, ew/2) rx(-90) sliding_t_nut(M4_sliding_t_nut);
+  }
+  txyz(fw/2-ew*2.5, ew/2+th, ew/2) explode([0,30,0], false)
+    rx(-90) screw(ex_print_screw, 10);
+  txyz(fw/2-ew*1.5, ew/2+th, ew/2) explode([0,30,0], false)
+    rx(-90) screw(ex_print_screw, 10);
+  txyz(fw/2-ew*1.5, ew/2+th, ew*1.5) explode([0,30,0], false)
+    rx(-90) screw(ex_print_screw, 10);
 }
 
 module y_rail_assembly() assembly("y_rail") {
@@ -876,15 +999,6 @@ module top_belt() {
 if ($preview) {
   $explode = 0;
   main_assembly();
-  //left_motor_assembly();
-  //right_motor_assembly();
-  //left_idler_assembly();
-  //left_inner_idler_assembly();
-  //right_idler_assembly();
-  //right_inner_idler_assembly();
-  //x_rail_assembly();
-  //x_carriage_assembly();
-  //left_y_carriage_assembly();
-  //right_y_carriage_assembly();
-  //double_idler_assembly();
+  //front_frame_assembly();
+  //back_frame_assembly();
 }

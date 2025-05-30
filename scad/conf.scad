@@ -149,6 +149,7 @@ ex_print_screw = M4_flanged_screw;
 tensioning_screw = M4_flanged_screw;
 tensioning_nut = screw_nut(tensioning_screw);
 ex_tap_screw = M5_flanged_screw;
+alt_ex_tap_screw = M5_dome_screw;
 bed_level_screw = M5_cap_screw;
 microswitch_screw = M3_cap_screw; // Tap the microswitch
 foot_screw = ex_tap_screw;
