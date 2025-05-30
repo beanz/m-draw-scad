@@ -18,8 +18,8 @@ Vitamins:
  e  r  e  r  r  r  r  e  l  n  r  r  r  e  l  e  t  l  l
   |  |  |  |  |  | 1|  |  |  |  |  | 1|  |  |  |  |  |  |  2 Stepper motor NEMA17 x 47mm (5x24 shaft)
   | 8|  |16|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 24 Ball bearing F623-2RS 3mm x 10mm x 4mm
-  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  1 Belt GT2 x 6mm x 1522mm
-  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  1 Belt GT2 x 6mm x 1522mm
+  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  1 Belt GT2 x 6mm x 1524mm
+  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  1 Belt GT2 x 6mm x 1524mm
   |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  1 Linear rail carriage MGN12H
   |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  2 Linear rail carriage MGN15H
   |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  1 Extrusion E2020 x 450mm
@@ -32,14 +32,14 @@ Vitamins:
   |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  1 Linear rail MGN12 x 400mm
   |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  2 Linear rail MGN15 x 300mm
   |  |  |  |  |  |  |  | 4|  |  |  |  |  | 4| 4|  |  |  | 12 Screw M3 cap x 10mm
-  |  |  |  |  | 1|  |  |  |  |  | 1|  |  |  |  |  |  |  |  2 Screw M3 cap x 16mm
   |  |  |  |  |  | 4|  |  |  |  |  | 4|  |  |  |  |  |  |  8 Screw M3 cap x 35mm
   |  |  |  |  |  |  | 2|  |  |  |  |  | 2|  |  |  |  |  |  4 Screw M3 cap x 45mm
+  |  |  |  |  | 1|  |  |  |  |  | 1|  |  |  |  |  |  |  |  2 Screw M3 grub x 20mm
   |  |  |  | 3|  | 5| 1|  |  | 3|  | 5| 1|  |  |  |  |  | 18 Screw M4 flanged x 10mm
   |  |  |  |  |  |  | 1|  |  |  |  |  | 1|  |  |  |  |  |  2 Screw M4 flanged x 16mm
   |  |  |  |  | 2|  |  |  |  |  | 2|  |  |  |  |  |  |  |  4 Screw M4 flanged x 45mm
   |14|  |24|  |  | 4| 2| 4|  |  |  | 4| 2| 4|  |  |  |  | 58 Washer  M3 x 7mm x 0.5mm
-  |  |  |  |  |  | 5| 2|  |  |  |  | 5| 2|  |  |  |  |  | 14 Washer  M4 x 9mm x 0.8mm
+  |  |  |  |  |  |  | 2|  |  |  |  |  | 2|  |  |  |  |  |  4 Washer  M4 x 9mm x 0.8mm
 
 Printed:
   |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  1 left_front_idler.stl

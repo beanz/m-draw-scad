@@ -1,7 +1,7 @@
 main_assembly:
 Vitamins:
-  1 Belt GT2 x 6mm x 1522mm
-  1 Belt GT2 x 6mm x 1522mm
+  1 Belt GT2 x 6mm x 1524mm
+  1 Belt GT2 x 6mm x 1524mm
 
 Assemblies:
   1 back_frame_assembly
