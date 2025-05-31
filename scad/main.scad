@@ -18,29 +18,42 @@ module main_assembly() assembly("main") {
   tz(bottom_belt_h) bottom_belt();
 }
 
-module frame_x_carriage_assembly() assembly("frame_x_carriage") {
+module frame_x_carriage_assembly()
+    pose([67, 0, 30], [-35, 54, -3], d = 500, exploded = true)
+    assembly("frame_x_carriage") {
   frame_x_rail_assembly();
   tyz(pos[1]-ew/2, x_rail_h+ew/2) rx(90) tx(pos[0]) {
     tz(x_car_h) x_carriage_assembly();
+    tz(th) carriage_hole_positions(x_car) {
+      screw_and_washer(carriage_screw(x_car), 10);
+    }
   }
 }
 
-module frame_x_rail_assembly() assembly("frame_x_rail") {
+//! Repeat at both y carriages
+
+module frame_x_rail_assembly()
+    pose([67, 0, 30], [147, 150, -22], d = 500, exploded = true)
+    assembly("frame_x_rail") {
   frame_motor_assembly();
-  x_rail_assembly();
-  // right y carriage screws
-  txyz(fw/2-ew*.5, pos[1]-15, ew*2+th) rz(90) {
-    carriage_hole_positions(y_car) {
-      screw_and_washer(carriage_screw(y_car), 10);
+  explode([0, 0, 20], true) {
+    x_rail_assembly();
+    // right y carriage screws
+    txyz(fw/2-ew*.5, pos[1]-15, ew*2+th) rz(90) {
+      carriage_hole_positions(y_car) {
+        screw_and_washer(carriage_screw(y_car), 10);
+      }
     }
-  }
-  // left y carriage screws
-  txyz(-(fw/2-ew*.5), pos[1]-15, ew*2+th) rz(90) {
-    carriage_hole_positions(y_car) {
-      screw_and_washer(carriage_screw(y_car), 10);
+    // left y carriage screws
+    txyz(-(fw/2-ew*.5), pos[1]-15, ew*2+th) rz(90) {
+      carriage_hole_positions(y_car) {
+        screw_and_washer(carriage_screw(y_car), 10);
+      }
     }
   }
 }
+
+//! Repeat at both motor mounts
 
 module frame_motor_assembly() assembly("frame_motor") {
   frame_idler_assembly();
@@ -78,7 +91,7 @@ module top_belt() {
 }
 
 if ($preview) {
-  $explode = 0;
-  main_assembly();
-  //x_rail_assembly();
+  $explode = 1;
+  //main_assembly();
+  frame_x_rail_assembly();
 }
