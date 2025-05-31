@@ -1,0 +1,6 @@
+frame_idler_assembly:
+
+Assemblies:
+  1 frame_assembly
+  1 left_idler_assembly
+  1 right_idler_assembly

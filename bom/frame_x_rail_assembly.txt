@@ -1,0 +1,8 @@
+frame_x_rail_assembly:
+Vitamins:
+  8 Screw M3 cap x 10mm
+  8 Washer  M3 x 7mm x 0.5mm
+
+Assemblies:
+  1 frame_motor_assembly
+  1 x_rail_assembly

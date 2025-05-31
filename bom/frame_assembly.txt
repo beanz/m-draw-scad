@@ -1,0 +1,8 @@
+frame_assembly:
+Vitamins:
+  4 Screw M5 flanged x 10mm
+  2 Nut M4 sliding T
+
+Assemblies:
+  1 back_and_y_assembly
+  1 front_frame_assembly

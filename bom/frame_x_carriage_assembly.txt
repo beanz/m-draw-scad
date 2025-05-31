@@ -1,0 +1,5 @@
+frame_x_carriage_assembly:
+
+Assemblies:
+  1 frame_x_rail_assembly
+  1 x_carriage_assembly
