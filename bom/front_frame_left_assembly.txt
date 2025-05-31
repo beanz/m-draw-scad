@@ -1,0 +1,9 @@
+front_frame_left_assembly:
+Vitamins:
+  1 Extrusion E2040 x 472mm
+  1 Screw M4 flanged x 10mm
+  1 Screw M5 dome x 10mm
+  4 Nut M4 sliding T
+
+Printed:
+  1 left_front_corner.stl
