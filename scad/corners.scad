@@ -54,4 +54,3 @@ module left_front_corner_stl() stl("left_front_corner") {
 module right_front_corner_stl() stl("right_front_corner") {
   mirror([1,0,0]) front_corner();
 }
-

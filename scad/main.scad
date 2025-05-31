@@ -10,11 +10,13 @@ use <frame.scad>
 
 module main_assembly()
   assembly("main") {
+  frame_assembly();
+  tz(x_rail_h) x_rail_assembly();
   tx(-(fw/2-ew*.5)) left_y_rail_assembly();
   tx(fw/2-ew*.5) right_y_rail_assembly();
-  ty(-(fd/2)) front_frame_assembly();
-  ty(fd/2-ew*.5) back_frame_assembly();
-  tz(x_rail_h) x_rail_assembly();
+  tyz(pos[1]-ew/2, x_rail_h+ew/2) rx(90) tx(pos[0]) {
+    tz(x_car_h) x_carriage_assembly();
+  }
   left_motor_assembly();
   left_idler_assembly();
   right_motor_assembly();
@@ -235,11 +237,11 @@ module right_lower_motor_mount_stl() stl("right_lower_motor_mount") {
 module x_rail_assembly() assembly("x_rail") {
   tyz(pos[1], ew/2) {
     ty(-ew/2) rx(90) {
-      rail(x_rail, x_rail_l);
-      tx(pos[0]) {
-        carriage(x_car);
-        tz(x_car_h) x_carriage_assembly();
-      }
+      rail_assembly(x_car, x_rail_l, pos = pos[0]);
+    rail_screws(x_rail, x_rail_l, 5);
+    tz(-2) explode([200, 0, 0])
+      rail_hole_positions(x_rail, x_rail_l) vflip()
+        sliding_t_nut(M3_sliding_t_nut);
     }
     ry(90) extrusion(e2020, x_bar_l);
   }
@@ -302,19 +304,9 @@ module x_carriage_insert_positions() {
   children();
 }
 
-module y_rail_assembly() assembly("y_rail") {
-  tz(ew*2) {
-    rz(90) rail(y_rail, y_rail_l);
-    ty(pos[1]-15) rz(90) carriage(y_car);
-  }
-  tz(ew) rx(90) extrusion(e2040, fd);
-}
-
 module left_y_rail_assembly() assembly("left_y_rail") {
-  y_rail_assembly();
   tz(ew*2+y_car_h) ty(pos[1]-15) rz(90) {
     left_y_carriage_assembly();
-    
     // carriage screws
     tz(-y_car_h+th) carriage_hole_positions(y_car) {
       screw_and_washer(carriage_screw(y_car), 10);
@@ -323,10 +315,8 @@ module left_y_rail_assembly() assembly("left_y_rail") {
 }
 
 module right_y_rail_assembly() assembly("right_y_rail") {
-  y_rail_assembly();
   tz(ew*2+y_car_h) ty(pos[1]-15) rz(90) {
     right_y_carriage_assembly();
-
     // carriage screws
     tz(-y_car_h+th) carriage_hole_positions(y_car) {
       screw_and_washer(carriage_screw(y_car), 10);
@@ -868,8 +858,7 @@ module top_belt() {
 }
 
 if ($preview) {
-  $explode = 0;
-  main_assembly();
-  //front_frame_left_assembly();
-  //back_frame_assembly();
+  $explode = 1;
+  //main_assembly();
+  x_rail_assembly();
 }
