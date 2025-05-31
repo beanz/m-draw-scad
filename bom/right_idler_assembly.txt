@@ -1,7 +1,6 @@
 right_idler_assembly:
 Vitamins:
   2 Nut M4 x 3.2mm 
-  3 Screw M4 flanged x 10mm
 
 Printed:
   1 right_idler_mount.stl

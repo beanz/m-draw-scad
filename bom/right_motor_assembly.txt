@@ -3,7 +3,6 @@ Vitamins:
   1 Stepper motor NEMA17 x 47mm (5x24 shaft)
   1 Pulley GT2OB 20 teeth
   4 Screw M3 cap x 35mm
-  5 Screw M4 flanged x 10mm
   4 Washer  M3 x 7mm x 0.5mm
 
 Printed:
