@@ -3,24 +3,14 @@ include <lazy.scad>
 include <shapes.scad>
 
 module left_idler_assembly() assembly("left_idler") {
-  txyz(-motor_x, -motor_y, ew2) {
-    left_idler_mount_stl();
-    txyz(-NEMA_hole_pitch(NEMA17_47)/2,
-         -10,
-         -(ew2-top_belt_h-idler_h/2)-idler_h/2) {
-      left_inner_idler_assembly();
-      for (z = [12, -20-(top_belt_h-bottom_belt_h)])
-        tz(z) rx(-90) tz(-4-45/2-nut_thickness(tensioning_nut)/2)
-          nut(tensioning_nut);
-    }
-    for (x = [ew*.5, 72-ew/2]) {
-      txyz(-motor_x_offset+x, -motor_y_offset+ew*.5, th) {
-        screw(ex_print_screw, 10);
-      }
-    }
-    txyz(-(motor_x_offset-72+ew/2), -motor_y_offset+ew*.5, -ew-th) {
-      vflip() screw(ex_print_screw, 10);
-    }
+  left_idler_mount_stl();
+  txyz(-NEMA_hole_pitch(NEMA17_47)/2,
+       -10,
+       -(ew2-top_belt_h-idler_h/2)-idler_h/2) {
+    left_inner_idler_assembly();
+    for (z = [12, -20-(top_belt_h-bottom_belt_h)])
+      tz(z) rx(-90) tz(-4-45/2-nut_thickness(tensioning_nut)/2)
+        nut(tensioning_nut);
   }
 }
 
@@ -107,24 +97,14 @@ module left_front_idler_stl() stl("left_front_idler") {
 }
 
 module right_idler_assembly() assembly("right_idler") {
-  txyz(motor_x, -motor_y, ew2) {
-    right_idler_mount_stl();
-    txyz(NEMA_hole_pitch(NEMA17_47)/2,
-         -10,
-         -(ew2-bottom_belt_h-idler_h/2)-idler_h/2) {
-      right_inner_idler_assembly();
-      for (z = [12, -20])
-        tz(z) rx(-90) tz(-4-45/2-nut_thickness(tensioning_nut)/2)
-          nut(tensioning_nut);
-    }
-    for (x = [ew*.5, 72-ew/2]) {
-      txyz(motor_x_offset-x, -motor_y_offset+ew*.5, th) {
-        screw(ex_print_screw, 10);
-      }
-    }
-    txyz(motor_x_offset-72+ew/2, -motor_y_offset+ew*.5, -ew-th) {
-      vflip() screw(ex_print_screw, 10);
-    }
+  right_idler_mount_stl();
+  txyz(NEMA_hole_pitch(NEMA17_47)/2,
+       -10,
+       -(ew2-bottom_belt_h-idler_h/2)-idler_h/2) {
+    right_inner_idler_assembly();
+    for (z = [12, -20])
+      tz(z) rx(-90) tz(-4-45/2-nut_thickness(tensioning_nut)/2)
+        nut(tensioning_nut);
   }
 }
 

@@ -10,7 +10,9 @@ use <idlers.scad>
 use <x-carriage.scad>
 use <x-rail.scad>
 
-//! Insert PSU
+//! Put the belts in with front idlers as loose then
+//! tighten the clamps. Finally, tighten the idlers
+//! evenly.
 
 module main_assembly() assembly("main") {
   frame_x_carriage_assembly();
@@ -55,16 +57,74 @@ module frame_x_rail_assembly()
 
 //! Repeat at both motor mounts
 
-module frame_motor_assembly() assembly("frame_motor") {
+module frame_motor_assembly()
+    pose([72, 0, 280], [-53, 96, 162], d = 250, exploded = true)
+    assembly("frame_motor") {
   frame_idler_assembly();
-  left_motor_assembly();
-  right_motor_assembly();
+  explode([0, 0, 40], explode_children = true) {
+    left_motor_assembly();
+    txyz(-motor_x, motor_y, motor_z) {
+      for (x = [ew*.5, 72/2, 72-ew/2]) {
+        txyz(-motor_x_offset+x, motor_y_offset-ew*.5, -(motor_z-ew2-th)) {
+          screw(ex_print_screw, 10);
+        }
+      }
+      tz(-2*(motor_z-top_belt_h-idler_h/2)-double_idler_h)
+      myz(NEMA_hole_pitch(NEMA17_47)/2)
+        tyz(fd/2-motor_y-ew-th, -motor_z_offset+ew/2) rx(90)
+          screw(ex_print_screw, 10);
+    }
+  }
+  explode([0, 0, 40], explode_children = true) {
+    right_motor_assembly();
+    txyz(motor_x, motor_y, motor_z) {
+      for (x = [ew*.5, 72/2, 72-ew/2]) {
+        txyz(motor_x_offset-x, motor_y_offset-ew*.5, -(motor_z-ew2-th)) {
+          screw(ex_print_screw, 10);
+        }
+      }
+      tz(-2*(motor_z-top_belt_h-idler_h/2)-double_idler_h)
+      myz(NEMA_hole_pitch(NEMA17_47)/2)
+        tyz(fd/2-motor_y-ew-th, -motor_z_offset+ew/2) rx(90)
+          screw(ex_print_screw, 10);
+     }
+   }
 }
 
-module frame_idler_assembly() assembly("frame_idler") {
+//! Repeat at both front idler mounts
+
+module frame_idler_assembly()
+    pose([60, 0, 285], [-35, -203, 164], d = 300, exploded = true)
+    assembly("frame_idler") {
   frame_assembly();
-  left_idler_assembly();
-  right_idler_assembly();
+  txyz(-motor_x, -motor_y, ew2) {
+    explode([40, 40, 0], offset = [-40,-40,0],
+            explode_children = true) {
+      left_idler_assembly();
+      for (x = [ew*.5, 72-ew/2]) {
+        txyz(-motor_x_offset+x, -motor_y_offset+ew*.5, th) {
+          screw(ex_print_screw, 10);
+        }
+      }
+      txyz(-(motor_x_offset-72+ew/2), -motor_y_offset+ew*.5, -ew-th) {
+        vflip() screw(ex_print_screw, 10);
+      }
+    }
+  }
+  txyz(motor_x, -motor_y, ew2) {
+    explode([-40, 40, 0], offset = [40, -40, 0],
+            explode_children = true) {
+      right_idler_assembly();
+      for (x = [ew*.5, 72-ew/2]) {
+        txyz(motor_x_offset-x, -motor_y_offset+ew*.5, th) {
+          screw(ex_print_screw, 10);
+        }
+      }
+      txyz(motor_x_offset-72+ew/2, -motor_y_offset+ew*.5, -ew-th) {
+        vflip() screw(ex_print_screw, 10);
+      }
+    }
+  }
 }
 
 module bottom_belt() {
@@ -93,5 +153,5 @@ module top_belt() {
 if ($preview) {
   $explode = 1;
   //main_assembly();
-  frame_x_rail_assembly();
+  frame_idler_assembly();
 }

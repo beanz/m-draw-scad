@@ -24,15 +24,6 @@ module left_motor_assembly() assembly("left_motor") {
     mxz(NEMA_hole_pitch(NEMA17_47)/2) myz(NEMA_hole_pitch(NEMA17_47)/2)
       tz(-(motor_z-2*(motor_z-top_belt_h-idler_h/2)-double_idler_h+th))
         vflip() screw_and_washer(motor_screw, 35);
-    for (x = [ew*.5, 72/2, 72-ew/2]) {
-      txyz(-motor_x_offset+x, motor_y_offset-ew*.5, -(motor_z-ew2-th)) {
-        screw(ex_print_screw, 10);
-      }
-    }
-    tz(-2*(motor_z-top_belt_h-idler_h/2)-double_idler_h)
-    myz(NEMA_hole_pitch(NEMA17_47)/2)
-      tyz(fd/2-motor_y-ew-th, -motor_z_offset+ew/2) rx(90)
-        screw(ex_print_screw, 10);
   }
 }
 
@@ -129,15 +120,6 @@ module right_motor_assembly() assembly("right_motor") {
     mxz(NEMA_hole_pitch(NEMA17_47)/2) myz(NEMA_hole_pitch(NEMA17_47)/2)
       tz(-(motor_z-2*(motor_z-top_belt_h-idler_h/2)-double_idler_h+th))
         vflip() screw_and_washer(motor_screw, 35);
-    for (x = [ew*.5, 72/2, 72-ew/2]) {
-      txyz(motor_x_offset-x, motor_y_offset-ew*.5, -(motor_z-ew2-th)) {
-        screw(ex_print_screw, 10);
-      }
-    }
-    tz(-2*(motor_z-top_belt_h-idler_h/2)-double_idler_h)
-    myz(NEMA_hole_pitch(NEMA17_47)/2)
-      tyz(fd/2-motor_y-ew-th, -motor_z_offset+ew/2) rx(90)
-        screw(ex_print_screw, 10);
   }
 }
 
