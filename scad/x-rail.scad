@@ -4,7 +4,9 @@ include <shapes.scad>
 
 use <y-carriage.scad>
 
-module x_rail_assembly() assembly("x_rail") {
+module x_rail_assembly()
+    pose([72, 0, 321], [409, 188, -39], d = 600, exploded = true)
+    assembly("x_rail") {
   x_rail_left_assembly();
   txyz(fw/2-ew*.5, pos[1]-15, ew*2+y_car_h) rz(90) {
     explode([0, -40, 0], offset = [0, 40, 0]) right_y_carriage_assembly();
@@ -25,7 +27,8 @@ module x_rail_assembly() assembly("x_rail") {
 }
 
 module x_rail_left_assembly()
-    pose([70, 0, 205], [-265, 30, 64]) assembly("x_rail_left") {
+    pose([63, 0, 21], [-354, 297, -118], d = 800, exploded = true)
+    assembly("x_rail_left") {
   tz(x_rail_h) x_rail_carriage_assembly();
   txyz(-(fw/2-ew*.5), pos[1]-15, ew*2+y_car_h) rz(90) {
     explode([0, 40, 0], offset = [0, -40, 0]) left_y_carriage_assembly();
@@ -57,4 +60,3 @@ module x_rail_carriage_assembly() assembly("x_rail_carriage") {
     ry(90) extrusion(e2020, x_bar_l);
   }
 }
-

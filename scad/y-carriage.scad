@@ -4,22 +4,49 @@ include <shapes.scad>
 
 use <idlers.scad>
 
-module left_y_carriage_assembly() assembly("left_y_carriage") {
+module left_y_carriage_assembly()
+    pose([80, 0, 227], [-35, -9, 10])
+    assembly("left_y_carriage") {
   left_y_carriage_stl();
-  left_lower_y_carriage_stl();
-  
+  explode([0, 0, -10]) left_lower_y_carriage_stl();
   tz(th) {
     // idler screws
     for (i = y_car_idlers) txy(-i[1], -i[0]) {
       screw_and_washer(idler_screw, 45);
-      tz(-y_rail_offset-ew/2-th) vflip() nut_and_washer(M4_nut);
+      tz(-y_rail_offset-ew/2-th) vflip()
+        explode([0, 0, 20]) nut_and_washer(M4_nut);
     }
 
     // idlers
-    txyz(-y_car_idlers[0][1], -y_car_idlers[0][0], -y_car_idler_h[0]-idler_h/2)
-      idler_assembly();
-    txyz(-y_car_idlers[1][1], -y_car_idlers[1][0], -y_car_idler_h[1]-idler_h/2)
-      idler_assembly();
+    txyz(-y_car_idlers[0][1], -y_car_idlers[0][0],
+         -y_car_idler_h[0]-idler_h/2)
+      explode([-20, 0, 0]) idler_assembly();
+    txyz(-y_car_idlers[1][1], -y_car_idlers[1][0],
+         -y_car_idler_h[1]-idler_h/2)
+      explode([-20, 0, 0]) idler_assembly();
+  }
+}
+
+module right_y_carriage_assembly()
+    pose([81, 0, 313], [-35, -9, 10])
+    assembly("right_y_carriage") {
+  right_y_carriage_stl();
+  explode([0, 0, -10]) right_lower_y_carriage_stl();
+  tz(th) {
+    // idler screws
+    for (i = y_car_idlers) txy(-i[1], i[0]) {
+      screw_and_washer(idler_screw, 45);
+      tz(-y_rail_offset-ew/2-th) vflip()
+        explode([0, 0, 20]) nut_and_washer(M4_nut);
+    }
+
+    // idlers
+    txyz(-y_car_idlers[0][1], y_car_idlers[0][0],
+         -y_car_idler_h[1]-idler_h/2)
+      explode([-20, 0, 0]) idler_assembly();
+    txyz(-y_car_idlers[1][1], y_car_idlers[1][0],
+         -y_car_idler_h[0]-idler_h/2)
+      explode([-20, 0, 0]) idler_assembly();
   }
 }
 
@@ -131,27 +158,6 @@ module left_lower_y_carriage_stl() stl("left_lower_y_carriage") {
                    h = 100, center = true);
       }
     }
-  }
-}
-
-module right_y_carriage_assembly() assembly("right_y_carriage") {
-  right_y_carriage_stl();
-  right_lower_y_carriage_stl();
-  
-  tz(th) {
-    // idler screws
-    for (i = y_car_idlers) txy(-i[1], i[0]) {
-      screw_and_washer(idler_screw, 45);
-      tz(-y_rail_offset-ew/2-th) vflip() nut_and_washer(M4_nut);
-    }
-
-    // idlers
-    txyz(-y_car_idlers[0][1], y_car_idlers[0][0],
-         -y_car_idler_h[1]-idler_h/2)
-      idler_assembly();
-    txyz(-y_car_idlers[1][1], y_car_idlers[1][0],
-         -y_car_idler_h[0]-idler_h/2)
-      idler_assembly();
   }
 }
 

@@ -8,6 +8,7 @@ use <frame.scad>
 use <motor.scad>
 use <idlers.scad>
 use <x-carriage.scad>
+use <y-carriage.scad>
 use <x-rail.scad>
 
 //! Put the belts in with front idlers as loose then
@@ -152,6 +153,5 @@ module top_belt() {
 
 if ($preview) {
   $explode = 0;
-  //main_assembly();
-  frame_assembly();
+  main_assembly();
 }
