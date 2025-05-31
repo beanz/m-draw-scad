@@ -1,0 +1,8 @@
+back_frame_left_assembly:
+Vitamins:
+  1 Extrusion E2040 x 472mm
+  3 Screw M4 flanged x 10mm
+  7 Nut M4 sliding T
+
+Printed:
+  1 left_back_corner.stl

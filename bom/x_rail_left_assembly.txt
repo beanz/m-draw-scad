@@ -1,0 +1,9 @@
+x_rail_left_assembly:
+Vitamins:
+  1 Screw M4 flanged x 10mm
+  1 Screw M4 flanged x 16mm
+  2 Nut M3 sliding T
+
+Assemblies:
+  1 left_y_carriage_assembly
+  1 x_rail_carriage_assembly

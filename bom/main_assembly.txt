@@ -4,12 +4,4 @@ Vitamins:
   1 Belt GT2 x 6mm x 1524mm
 
 Assemblies:
-  1 back_frame_assembly
-  1 front_frame_assembly
-  1 left_idler_assembly
-  1 left_motor_assembly
-  1 left_y_rail_assembly
-  1 right_idler_assembly
-  1 right_motor_assembly
-  1 right_y_rail_assembly
-  1 x_rail_assembly
+  1 frame_x_carriage_assembly
