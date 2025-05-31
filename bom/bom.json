@@ -169,7 +169,7 @@
         "name": "x_rail_left_assembly",
         "big": null,
         "ngb": false,
-        "zoomed": 0,
+        "zoomed": 2,
         "count": 1,
         "assemblies": {
             "x_rail_carriage_assembly": 1,
@@ -193,7 +193,7 @@
         "name": "x_rail_assembly",
         "big": null,
         "ngb": false,
-        "zoomed": 0,
+        "zoomed": 2,
         "count": 1,
         "assemblies": {
             "x_rail_left_assembly": 1,
@@ -416,7 +416,7 @@
             "extrusion(E2040, 472): Extrusion E2040 x 472mm": {
                 "count": 1
             },
-            "screw(M5_dome_screw, 10): Screw M5 dome x 10mm": {
+            "screw(M5_low_profile_screw, 10): Screw M5 low profile x 10mm": {
                 "count": 1
             },
             "sliding_t_nut(M4_sliding_t_nut): Nut M4 sliding T": {
@@ -445,7 +445,7 @@
             "front_frame_left_assembly": 1
         },
         "vitamins": {
-            "screw(M5_dome_screw, 10): Screw M5 dome x 10mm": {
+            "screw(M5_low_profile_screw, 10): Screw M5 low profile x 10mm": {
                 "count": 1
             },
             "sliding_t_nut(M4_sliding_t_nut): Nut M4 sliding T": {
@@ -580,7 +580,10 @@
         },
         "vitamins": {
             "screw(M5_flanged_screw, 10): Screw M5 flanged x 10mm": {
-                "count": 4
+                "count": 2
+            },
+            "screw(M5_low_profile_screw, 10): Screw M5 low profile x 10mm": {
+                "count": 2
             },
             "sliding_t_nut(M4_sliding_t_nut): Nut M4 sliding T": {
                 "count": 2
