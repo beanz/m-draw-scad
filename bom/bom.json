@@ -253,9 +253,6 @@
             },
             "screw(M3_cap_screw, 35): Screw M3 cap x 35mm": {
                 "count": 4
-            },
-            "screw(M4_flanged_screw, 10): Screw M4 flanged x 10mm": {
-                "count": 5
             }
         },
         "printed": {
@@ -294,9 +291,6 @@
             },
             "screw(M3_cap_screw, 35): Screw M3 cap x 35mm": {
                 "count": 4
-            },
-            "screw(M4_flanged_screw, 10): Screw M4 flanged x 10mm": {
-                "count": 5
             }
         },
         "printed": {
@@ -351,9 +345,6 @@
         "vitamins": {
             "nut(M4_nut): Nut M4 x 3.2mm ": {
                 "count": 2
-            },
-            "screw(M4_flanged_screw, 10): Screw M4 flanged x 10mm": {
-                "count": 3
             }
         },
         "printed": {
@@ -403,9 +394,6 @@
         "vitamins": {
             "nut(M4_nut): Nut M4 x 3.2mm ": {
                 "count": 2
-            },
-            "screw(M4_flanged_screw, 10): Screw M4 flanged x 10mm": {
-                "count": 3
             }
         },
         "printed": {
@@ -605,14 +593,18 @@
         "name": "frame_idler_assembly",
         "big": null,
         "ngb": false,
-        "zoomed": 0,
+        "zoomed": 2,
         "count": 1,
         "assemblies": {
             "frame_assembly": 1,
             "left_idler_assembly": 1,
             "right_idler_assembly": 1
         },
-        "vitamins": {},
+        "vitamins": {
+            "screw(M4_flanged_screw, 10): Screw M4 flanged x 10mm": {
+                "count": 6
+            }
+        },
         "printed": {},
         "routed": {}
     },
@@ -620,14 +612,18 @@
         "name": "frame_motor_assembly",
         "big": null,
         "ngb": false,
-        "zoomed": 0,
+        "zoomed": 2,
         "count": 1,
         "assemblies": {
             "frame_idler_assembly": 1,
             "left_motor_assembly": 1,
             "right_motor_assembly": 1
         },
-        "vitamins": {},
+        "vitamins": {
+            "screw(M4_flanged_screw, 10): Screw M4 flanged x 10mm": {
+                "count": 10
+            }
+        },
         "printed": {},
         "routed": {}
     },
@@ -635,7 +631,7 @@
         "name": "frame_x_rail_assembly",
         "big": null,
         "ngb": false,
-        "zoomed": 0,
+        "zoomed": 2,
         "count": 1,
         "assemblies": {
             "frame_motor_assembly": 1,
@@ -656,13 +652,20 @@
         "name": "frame_x_carriage_assembly",
         "big": null,
         "ngb": false,
-        "zoomed": 0,
+        "zoomed": 2,
         "count": 1,
         "assemblies": {
             "frame_x_rail_assembly": 1,
             "x_carriage_assembly": 1
         },
-        "vitamins": {},
+        "vitamins": {
+            "washer(M3_washer): Washer  M3 x 7mm x 0.5mm": {
+                "count": 4
+            },
+            "screw(M3_cap_screw, 10): Screw M3 cap x 10mm": {
+                "count": 4
+            }
+        },
         "printed": {},
         "routed": {}
     },
