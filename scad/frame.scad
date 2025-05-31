@@ -13,12 +13,12 @@ module frame_assembly()
   }
   txy(-fw/2+ew/2, -fd/2+ew/2) explode([0, -40, 0], true) {
     tyz(-ew/2-th, ew*.5) rx(90) screw(ex_tap_screw, 10);
-    tyz(-ew/2-th, ew*1.5) rx(90) screw(ex_tap_screw, 10);
+    tyz(-ew/2-th, ew*1.5) rx(90) screw(alt_ex_tap_screw, 10);
     tz(ew2-2) rz(90) vflip() sliding_t_nut(M4_sliding_t_nut);
   }
   txy(fw/2-ew/2, -fd/2+ew/2) explode([0, -40, 0], true) {
     tyz(-ew/2-th, ew*.5) rx(90) screw(ex_tap_screw, 10);
-    tyz(-ew/2-th, ew*1.5) rx(90) screw(ex_tap_screw, 10);
+    tyz(-ew/2-th, ew*1.5) rx(90) screw(alt_ex_tap_screw, 10);
     tz(ew2-2) rz(90) vflip() sliding_t_nut(M4_sliding_t_nut);
   }
 }
@@ -60,7 +60,7 @@ module front_frame_assembly()
   tx(-fw/2) explode([-40, 0, 0], explode_children = true,
                     offset = [ew*2.2, -ew, ew-th/2]) {
     rx(90) right_front_corner_stl();
-    txyz(ew-th, -ew/2, ew*1.5) ry(-90) screw(alt_ex_tap_screw, 10);
+    txyz(ew-tth, -ew/2, ew*1.5) ry(-90) screw(alt_ex_tap_screw, 10);
     txyz(ew*1.5, -ew/2, ew+2) sliding_t_nut(M4_sliding_t_nut);
     txyz(ew*1.5, ew/2, ew+2) vflip() sliding_t_nut(M4_sliding_t_nut);
     txyz(ew*1.5, ew/2, ew*2-2) vflip() sliding_t_nut(M4_sliding_t_nut);
@@ -76,7 +76,7 @@ module front_frame_left_assembly()
   tx(fw/2) explode([40, 0, 0], explode_children = true,
                    offset = [-ew*2.2, -ew, ew-th/2]) {
     rx(90) left_front_corner_stl();
-    txyz(-ew+th, -ew/2, ew*1.5) ry(90) screw(alt_ex_tap_screw, 10);
+    txyz(-ew+tth, -ew/2, ew*1.5) ry(90) screw(alt_ex_tap_screw, 10);
     txyz(-ew*1.5, -ew/2, ew+2) sliding_t_nut(M4_sliding_t_nut);
     txyz(-ew*1.5, ew/2, ew+2) sliding_t_nut(M4_sliding_t_nut);
     txyz(-ew*1.5, ew/2, ew*2-2) vflip() sliding_t_nut(M4_sliding_t_nut);

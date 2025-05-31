@@ -151,7 +151,7 @@ module top_belt() {
 }
 
 if ($preview) {
-  $explode = 1;
+  $explode = 0;
   //main_assembly();
-  frame_idler_assembly();
+  frame_assembly();
 }

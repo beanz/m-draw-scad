@@ -32,8 +32,8 @@ module front_corner() color(print_color) render() {
   txy(-ew/2, ew) difference() {
     union() {
       rrcf([ew, ew*2, th]);
-      txyz(-ew/2, ew/2-th/2, ew/2) ry(90) rrcf([ew, ew+th, th]);
-      txyz(-ew+th/2, 0, ew/2) rx(90) rrcf([ew+th, ew, th]);
+      txyz(-ew/2, ew/2-th/2, ew/2) ry(90) rrcf([ew, ew+th, tth]);
+      txyz(-ew+tth/2, 0, ew/2) rx(90) rrcf([ew+tth, ew, th]);
     }
     mxz(ew/2)
       cylinder(d = screw_clearance_d(ex_tap_screw),

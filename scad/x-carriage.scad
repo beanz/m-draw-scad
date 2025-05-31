@@ -58,5 +58,3 @@ module x_carriage_insert_positions() {
   tz(th)
   children();
 }
-
-
