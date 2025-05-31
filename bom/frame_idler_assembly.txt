@@ -1,4 +1,6 @@
 frame_idler_assembly:
+Vitamins:
+  6 Screw M4 flanged x 10mm
 
 Assemblies:
   1 frame_assembly
