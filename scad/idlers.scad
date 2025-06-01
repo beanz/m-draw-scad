@@ -2,15 +2,18 @@ include <conf.scad>
 include <lazy.scad>
 include <shapes.scad>
 
-module left_idler_assembly() assembly("left_idler") {
+module left_idler_assembly()
+    pose([70, 0, 52], [-14, 2, -8]) assembly("left_idler") {
   left_idler_mount_stl();
   txyz(-NEMA_hole_pitch(NEMA17_47)/2,
        -10,
        -(ew2-top_belt_h-idler_h/2)-idler_h/2) {
-    left_inner_idler_assembly();
-    for (z = [12, -20-(top_belt_h-bottom_belt_h)])
-      tz(z) rx(-90) tz(-4-45/2-nut_thickness(tensioning_nut)/2)
-        nut(tensioning_nut);
+    explode([0, 60, 0]) left_inner_idler_assembly();
+    tz(12) rx(-90) tz(-4-45/2-nut_thickness(tensioning_nut)/2)
+      explode([0, -20, 0]) nut(tensioning_nut);
+    tz(-20-(top_belt_h-bottom_belt_h))
+      rx(-90) tz(-4-45/2-nut_thickness(tensioning_nut)/2)
+      explode([0, 20, 0]) nut(tensioning_nut);
   }
 }
 
@@ -56,7 +59,7 @@ module left_idler_mount_stl() stl("left_idler_mount") {
     txyz(-motor_x_offset/2+(ew+3)/2, -motor_y_offset+ew/2, -ew/2)
       cc([100, ew, ew]);
 
-    // top extrusion_mount_holes
+    // extrusion_mount_holes
     for (x = [ew*.5, 72-ew/2]) {
       txy(-motor_x_offset+x, -motor_y_offset+ew*.5) {
         cylinder(d = screw_clearance_d(ex_print_screw),
@@ -96,15 +99,17 @@ module left_front_idler_stl() stl("left_front_idler") {
   }
 }
 
-module right_idler_assembly() assembly("right_idler") {
+module right_idler_assembly()
+    pose([70, 0, 52], [-1, 14, -15]) assembly("right_idler") {
   right_idler_mount_stl();
   txyz(NEMA_hole_pitch(NEMA17_47)/2,
        -10,
        -(ew2-bottom_belt_h-idler_h/2)-idler_h/2) {
-    right_inner_idler_assembly();
-    for (z = [12, -20])
-      tz(z) rx(-90) tz(-4-45/2-nut_thickness(tensioning_nut)/2)
-        nut(tensioning_nut);
+    explode([0, 60, 0]) right_inner_idler_assembly();
+    tz(12) rx(-90) tz(-4-45/2-nut_thickness(tensioning_nut)/2)
+      explode([0, -20, 0]) nut(tensioning_nut);
+    tz(-20) rx(-90) tz(-4-45/2-nut_thickness(tensioning_nut)/2)
+      explode([0, 20, 0]) nut(tensioning_nut);
   }
 }
 
