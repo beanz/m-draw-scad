@@ -5,19 +5,19 @@ include <shapes.scad>
 module left_idler_assembly()
     pose([70, 0, 52], [-14, 2, -8]) assembly("left_idler") {
   left_idler_mount_stl();
-  txyz(-NEMA_hole_pitch(NEMA17_47)/2,
-       -10,
+  txyz(-NEMA_hole_pitch(NEMA17_47)/2, -10,
        -(ew2-top_belt_h-idler_h/2)-idler_h/2) {
     explode([0, 60, 0]) left_inner_idler_assembly();
-    tz(12) rx(-90) tz(-4-45/2-nut_thickness(tensioning_nut)/2)
-      explode([0, -20, 0]) nut(tensioning_nut);
-    tz(-20-(top_belt_h-bottom_belt_h))
-      rx(-90) tz(-4-45/2-nut_thickness(tensioning_nut)/2)
-      explode([0, 20, 0]) nut(tensioning_nut);
+    for (z = [12, -20-(top_belt_h-bottom_belt_h)]) {
+      tz(z) rx(-90)
+       tz(-motor_y_offset+ew-nut_thickness(tensioning_nut)/2)
+          explode([0, z < 0 ? 20 : -20, 0]) rz(90) nut(tensioning_nut);
+    }
   }
 }
 
 module left_idler_mount_stl() stl("left_idler_mount") {
+  depth = 43;
   color(print_color) render() difference() {
     union() {
       txy(-motor_x_offset/2+(ew+3)/2, -motor_y_offset+ew/2)
@@ -25,8 +25,8 @@ module left_idler_mount_stl() stl("left_idler_mount") {
       txyz(-NEMA_hole_pitch(NEMA17_47)/2,
            -10,
            -(ew2-top_belt_h-idler_h/2)-idler_h/2) {
-        tyz(-8,-4-(top_belt_h-bottom_belt_h)/2)
-          rc([24,34,48+(top_belt_h-bottom_belt_h)]);
+        tyz(-motor_y_offset+depth/2+ew/2, -4-(top_belt_h-bottom_belt_h)/2)
+          rc([24, depth, 48+(top_belt_h-bottom_belt_h)]);
       }
       txyz(-motor_x_offset/2+(ew+3)/2+ew/2, -motor_y_offset+ew/2, -ew-th)
         rrcf([motor_x_offset+NEMA_width(NEMA17_47)/2+th/2-ew, ew, th]);
@@ -41,17 +41,20 @@ module left_idler_mount_stl() stl("left_idler_mount") {
           rc([21,21,45+(top_belt_h-bottom_belt_h)]);
       }
     }
+
     // tensioning screw holes
-    txyz(-NEMA_hole_pitch(NEMA17_47)/2,
-           -10,
+    txyz(-NEMA_hole_pitch(NEMA17_47)/2, -10,
            -(ew2-top_belt_h-idler_h/2)-idler_h/2) {
       for (z = [12, -20-(top_belt_h-bottom_belt_h)]) {
         tz(z) rx(-90) {
           cylinder(d = screw_clearance_d(tensioning_screw),
                    h = 80, center = true);
-          tz(-4-45/2-nut_thickness(M4_nut)/2)
-            cylinder(r = nut_radius(M4_nut)+1,
-                     h = nut_thickness(M4_nut) + 1);
+        }
+        tz(z) ty(-motor_y_offset+ew) {
+          hull() {
+            simple_nut_trap(M4_nut);
+            tz(z < 0 ? -20 : 20) simple_nut_trap(M4_nut);
+          }
         }
       }
     }
@@ -59,7 +62,7 @@ module left_idler_mount_stl() stl("left_idler_mount") {
     txyz(-motor_x_offset/2+(ew+3)/2, -motor_y_offset+ew/2, -ew/2)
       cc([100, ew, ew]);
 
-    // extrusion_mount_holes
+    // extrusion mount holes
     for (x = [ew*.5, 72-ew/2]) {
       txy(-motor_x_offset+x, -motor_y_offset+ew*.5) {
         cylinder(d = screw_clearance_d(ex_print_screw),
@@ -102,18 +105,19 @@ module left_front_idler_stl() stl("left_front_idler") {
 module right_idler_assembly()
     pose([70, 0, 52], [-1, 14, -15]) assembly("right_idler") {
   right_idler_mount_stl();
-  txyz(NEMA_hole_pitch(NEMA17_47)/2,
-       -10,
+  txyz(NEMA_hole_pitch(NEMA17_47)/2, -10,
        -(ew2-bottom_belt_h-idler_h/2)-idler_h/2) {
     explode([0, 60, 0]) right_inner_idler_assembly();
-    tz(12) rx(-90) tz(-4-45/2-nut_thickness(tensioning_nut)/2)
-      explode([0, -20, 0]) nut(tensioning_nut);
-    tz(-20) rx(-90) tz(-4-45/2-nut_thickness(tensioning_nut)/2)
-      explode([0, 20, 0]) nut(tensioning_nut);
+    for (z = [12, -20]) {
+      tz(z) rx(-90)
+       tz(-motor_y_offset+ew-nut_thickness(tensioning_nut)/2)
+          explode([0, z < 0 ? 20 : -20, 0]) rz(90) nut(tensioning_nut);
+    }
   }
 }
 
 module right_idler_mount_stl() stl("right_idler_mount") {
+  depth = 43;
   color(print_color) render() difference() {
     union() {
       txy(+motor_x_offset/2-(ew+3)/2, -motor_y_offset+ew/2)
@@ -121,7 +125,8 @@ module right_idler_mount_stl() stl("right_idler_mount") {
       txyz(NEMA_hole_pitch(NEMA17_47)/2,
            -10,
            -(ew2-bottom_belt_h-idler_h/2)-idler_h/2) {
-        tyz(-8,-4) rc([24,34,48]);
+        tyz(-motor_y_offset+depth/2+ew/2, -4)
+          rc([24, depth, 48]);
       }
       txyz(+motor_x_offset/2-(ew+3)/2-ew/2, -motor_y_offset+ew/2, -ew-th)
         rrcf([motor_x_offset+NEMA_width(NEMA17_47)/2+th/2-ew, ew, th]);
@@ -135,17 +140,20 @@ module right_idler_mount_stl() stl("right_idler_mount") {
         tz(-4) rc([21,21,45]);
       }
     }
+
     // tensioning screw holes
-    txyz(NEMA_hole_pitch(NEMA17_47)/2,
-           -10,
+    txyz(NEMA_hole_pitch(NEMA17_47)/2, -10,
            -(ew2-bottom_belt_h-idler_h/2)-idler_h/2) {
       for (z = [12, -20]) {
         tz(z) rx(-90) {
           cylinder(d = screw_clearance_d(tensioning_screw),
                    h = 80, center = true);
-          tz(-4-45/2-nut_thickness(M4_nut)/2)
-            cylinder(r = nut_radius(M4_nut)+1,
-                     h = nut_thickness(M4_nut) + 1);
+        }
+        tz(z) ty(-motor_y_offset+ew) {
+          hull() {
+            simple_nut_trap(M4_nut);
+            tz(z < 0 ? -20 : 20) simple_nut_trap(M4_nut);
+          }
         }
       }
     }
@@ -153,7 +161,7 @@ module right_idler_mount_stl() stl("right_idler_mount") {
     txyz(+motor_x_offset/2-(ew+3)/2, -motor_y_offset+ew/2, -ew/2)
       cc([100, ew, ew]);
 
-    // top extrusion_mount_holes
+    // extrusion mount holes
     for (x = [ew*.5, 72-ew/2]) {
       txy(motor_x_offset-x, -motor_y_offset+ew*.5) {
         cylinder(d = screw_clearance_d(ex_print_screw),
@@ -226,3 +234,8 @@ module double_idler_assembly() assembly("double_idler") {
   }
 }
 
+module simple_nut_trap(type) {
+ rx(-90) rz(90)
+   nut_trap(0, nut_trap_radius(type)+0.4, supported = false,
+            depth = nut_trap_depth(type)/2);
+}
