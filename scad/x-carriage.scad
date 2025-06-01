@@ -26,8 +26,12 @@ module x_carriage_stl() stl("x_carriage") {
       }
       // belt cutouts
       myz(30) mxz((3.3+6)/2) {
-        tx(-cutout_l/2) rcc([cutout_l+0.1,6.5,2]);
-        tx(-cutout_l+2/2) cc([2.1,6.5,20]);
+        tx(-cutout_l/2) rcc([cutout_l+0.1, 6.5, 2]);
+        tx(-cutout_l+2/2) cc([2.1, 6.5, 20]);
+        tz(th-belt_tooth_height(GT2x6)) for(i = [1:10]) {
+          tx(i*belt_pitch(GT2x6)-cutout_l)
+            rcc([1.3, 6.5, 2]);
+        }
       }
     x_carriage_insert_positions()
       rx(180) cylinder(r = insert_hole_radius(M3_Voron_insert), h = 8);
@@ -46,7 +50,7 @@ module x_belt_clamp_stl() stl("x_belt_clamp") {
         cylinder(d = screw_clearance_d(M3_cap_screw),
                  h = 100, center = true);
       mxz((3.3+6)/2) {
-        rcc([10,6.5,1.2]);
+        rcc([10, 6.5, 0.4]);
       }
     }
   }
