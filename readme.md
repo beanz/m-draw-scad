@@ -715,6 +715,8 @@ Drawing bot with MGN rails
 ### Assembly instructions
 ![back_and_y_assembly](assemblies/back_and_y_assembly_tn.png)
 
+Repeat for both back corners
+
 ![back_and_y_assembled](assemblies/back_and_y_assembled_tn.png)
 
 <span></span>
