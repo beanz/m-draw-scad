@@ -23,8 +23,10 @@ module frame_assembly()
   }
 }
 
+//! Repeat for both back corners
+
 module back_and_y_assembly()
-    pose([34, 0, 130], [-37, 189, -44], d = 1300, exploded = true)
+    pose([43, 0, 76], [146, 228, -71], d = 600, exploded = true)
     assembly("back_and_y") {
   tx(-(fw/2-ew*.5)) y_rail_assembly();
   tx(fw/2-ew*.5) y_rail_assembly();
