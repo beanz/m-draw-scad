@@ -1,0 +1,5 @@
+right_motor_pulley_assembly:
+Vitamins:
+  1 Stepper motor NEMA17 x 47mm (5x24 shaft)
+  1 Pulley GT2OB 20 teeth
+  2 Screw M3 grub x  6mm
