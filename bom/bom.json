@@ -232,22 +232,38 @@
         "routed": {}
     },
     {
+        "name": "right_motor_pulley_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 1,
+        "assemblies": {},
+        "vitamins": {
+            "pulley(GT2x20ob_pulley): Pulley GT2OB 20 teeth": {
+                "count": 1
+            },
+            "screw(M3_grub_screw, 6): Screw M3 grub x  6mm": {
+                "count": 2
+            },
+            "NEMA(NEMA17_47): Stepper motor NEMA17 x 47mm (5x24 shaft)": {
+                "count": 1
+            }
+        },
+        "printed": {},
+        "routed": {}
+    },
+    {
         "name": "right_motor_assembly",
         "big": null,
         "ngb": false,
         "zoomed": 0,
         "count": 1,
         "assemblies": {
+            "right_motor_pulley_assembly": 1,
             "double_idler_assembly": 1,
             "idler_assembly": 1
         },
         "vitamins": {
-            "pulley(GT2x20ob_pulley): Pulley GT2OB 20 teeth": {
-                "count": 1
-            },
-            "NEMA(NEMA17_47): Stepper motor NEMA17 x 47mm (5x24 shaft)": {
-                "count": 1
-            },
             "washer(M3_washer): Washer  M3 x 7mm x 0.5mm": {
                 "count": 4
             },
@@ -270,22 +286,38 @@
         "routed": {}
     },
     {
+        "name": "left_motor_pulley_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 1,
+        "assemblies": {},
+        "vitamins": {
+            "pulley(GT2x20ob_pulley): Pulley GT2OB 20 teeth": {
+                "count": 1
+            },
+            "screw(M3_grub_screw, 6): Screw M3 grub x  6mm": {
+                "count": 2
+            },
+            "NEMA(NEMA17_47): Stepper motor NEMA17 x 47mm (5x24 shaft)": {
+                "count": 1
+            }
+        },
+        "printed": {},
+        "routed": {}
+    },
+    {
         "name": "left_motor_assembly",
         "big": null,
         "ngb": false,
         "zoomed": 0,
         "count": 1,
         "assemblies": {
+            "left_motor_pulley_assembly": 1,
             "double_idler_assembly": 1,
             "idler_assembly": 1
         },
         "vitamins": {
-            "pulley(GT2x20ob_pulley): Pulley GT2OB 20 teeth": {
-                "count": 1
-            },
-            "NEMA(NEMA17_47): Stepper motor NEMA17 x 47mm (5x24 shaft)": {
-                "count": 1
-            },
             "washer(M3_washer): Washer  M3 x 7mm x 0.5mm": {
                 "count": 4
             },
