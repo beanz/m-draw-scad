@@ -4,27 +4,35 @@ include <shapes.scad>
 
 use <idlers.scad>
 
-module left_motor_assembly() assembly("left_motor") {
+module left_motor_assembly()
+    pose([247, 0, 204], [-190, 84, 39]) assembly("left_motor") {
   txyz(-motor_x, motor_y, motor_z) {
     rx(180) left_motor_mount_stl();
-    tz(-21) pulley(opulley);
-    vflip() rz(180) NEMA(NEMA17_47);
+    explode([0, 0, 40], offset = [0,0,-20])
+      left_motor_pulley_assembly();
     tz(-2*(motor_z-top_belt_h-idler_h/2)-double_idler_h)
       left_lower_motor_mount_stl();
     txyz(-NEMA_hole_pitch(NEMA17_47)/2,
          NEMA_hole_pitch(NEMA17_47)/2,
          -(motor_z-top_belt_h-idler_h/2)-idler_h+washer_h(M3_washer)/2) {
-      double_idler_assembly();
+      explode([-30, 0, 0]) double_idler_assembly();
     }
     txyz(NEMA_hole_pitch(NEMA17_47)/2,
          NEMA_hole_pitch(NEMA17_47)/2,
          -(motor_z-top_belt_h-idler_h/2)-idler_h/2) {
-      idler_assembly();
+      explode([30, 0, 0]) idler_assembly();
     }
     mxz(NEMA_hole_pitch(NEMA17_47)/2) myz(NEMA_hole_pitch(NEMA17_47)/2)
       tz(-(motor_z-2*(motor_z-top_belt_h-idler_h/2)-double_idler_h+th))
         vflip() screw_and_washer(motor_screw, 35);
   }
+}
+
+module left_motor_pulley_assembly()
+    pose([251, 0, 315]) assembly("left_motor_pulley") {
+  tz(-21) tz(-pulley_offset(opulley))
+    explode([0, 0, -30], true) pulley_assembly(opulley);
+  vflip() rz(180) NEMA(NEMA17_47);
 }
 
 module left_motor_mount_stl() stl("left_motor_mount") {
@@ -100,27 +108,35 @@ module left_lower_motor_mount_stl() stl("left_lower_motor_mount") {
   }
 }
 
-module right_motor_assembly() assembly("right_motor") {
+module right_motor_assembly()
+    pose([248, 0, 204], [171, 219, 98]) assembly("right_motor") {
   txyz(motor_x, motor_y, motor_z) {
     rx(180) right_motor_mount_stl();
-    tz(-9) vflip() pulley(opulley);
-    vflip() rz(180) NEMA(NEMA17_47);
+    explode([0, 0, 40], offset = [0, 0, -20])
+      right_motor_pulley_assembly();
     tz(-2*(motor_z-top_belt_h-idler_h/2)-double_idler_h)
       right_lower_motor_mount_stl();
     txyz(NEMA_hole_pitch(NEMA17_47)/2,
          NEMA_hole_pitch(NEMA17_47)/2,
          -(motor_z-top_belt_h-idler_h/2)-idler_h+washer_h(M3_washer)/2) {
-      double_idler_assembly();
+      explode([30, 0, 0]) double_idler_assembly();
     }
     txyz(-NEMA_hole_pitch(NEMA17_47)/2,
          NEMA_hole_pitch(NEMA17_47)/2,
          -(motor_z-top_belt_h-idler_h/2)-idler_h*1.5+washer_thickness(M3_washer)) {
-      idler_assembly();
+      explode([-30, 0, 0]) idler_assembly();
     }
     mxz(NEMA_hole_pitch(NEMA17_47)/2) myz(NEMA_hole_pitch(NEMA17_47)/2)
       tz(-(motor_z-2*(motor_z-top_belt_h-idler_h/2)-double_idler_h+th))
         vflip() screw_and_washer(motor_screw, 35);
   }
+}
+
+module right_motor_pulley_assembly()
+    pose([251, 0, 315]) assembly("right_motor_pulley") {
+  tz(-9) vflip() tz(-pulley_offset(opulley))
+    explode([0, 0, 25], true) pulley_assembly(opulley);
+  vflip() rz(180) NEMA(NEMA17_47);
 }
 
 module right_motor_mount_stl() stl("right_motor_mount") {
