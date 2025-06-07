@@ -2,12 +2,15 @@ include <conf.scad>
 include <lazy.scad>
 include <shapes.scad>
 
+use <pen.scad>
+
 module x_carriage_assembly() assembly("x_carriage") {
   x_carriage_insert_assembly();
   tz(th) myz(x_carriage_insert_hole_width/2) explode([0,0,20], true) {
     x_belt_clamp_stl();
     tz(th) mxz(x_carriage_insert_hole_gap/2) screw(clamp_screw, 10);
   }
+  tyz(x_carriage_w/2+servo_width()/2, th) rz(90) pen_assembly();
 }
 
 module x_carriage_insert_assembly() assembly("x_carriage_insert") {
@@ -19,7 +22,7 @@ module x_carriage_stl() stl("x_carriage") {
   cutout_l = 8;
   color(print_color) render() {
     difference() {
-      rrcf([60,40,th]);
+      rrcf([60, x_carriage_w, th]);
       carriage_hole_positions(x_car) {
         cylinder(d = screw_clearance_d(carriage_screw(x_car)),
                  h = 100, center = true);
