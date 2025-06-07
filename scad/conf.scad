@@ -248,3 +248,22 @@ y_car_idler_h = [
   y_car_idlers[0][2]+th-idler_h/2,
   y_car_idlers[1][2]+th-idler_h/2,
 ];
+
+grbl_esp32 = pcb("grbl_esp32",
+    "GRBL_esp32",
+    [70, 60, 2],
+    corner_r = 2,
+    hole_d = 3.5,
+    land_d = 6,
+    holes = [
+      [3.4, 3.65],    [3.4, 60-3.65],
+      [70-3.4, 3.65], [70-3.4, 60-3.65],
+    ],
+    components = [
+      [ (12.5+27.5)/2, 7.25, -90, "uSD", [15, 14.5, 2] ],
+      [ 40, 6, -90, "barrel_jack" ],
+      [ 22, 56, 90, "molex_hdr", 3 ],
+      [ 66, 33, 0, "molex_hdr", 4 ],
+      [ 66, 46, 0, "molex_hdr", 4 ],
+    ],
+    screw = M3_cap_screw);

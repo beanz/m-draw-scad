@@ -3,11 +3,11 @@ include <lazy.scad>
 include <shapes.scad>
 
 module pen_assembly() assembly("pen") {
-  pen_mount_stl();
-  //pen_holder_stl();
-  txyz(2, -servo_shaft_offset()+12, servo_boss_height()) {
-    servo(180);
-    tz(4) servo_hole_positions() screw(M2_cap_screw, 8);
+  //pen_mount_stl();
+  //tx(-100) pen_holder_stl();
+  txyz(0.5, -servo_shaft_offset()+13.5, servo_boss_height()) {
+    tz(-th) servo(-90);
+    tz(0) servo_hole_positions() screw(M2_cap_screw, 8);
   }
 }
 
@@ -30,8 +30,24 @@ module pen_mount_stl() stl("pen_mount") {
 }
 
 module pen_holder_stl() stl("pen_holder") {
+  h = 40;
   color(print_color) render() difference() {
-    cc([5,5,5]);
+    ty(-4) rrcf([18, 25, h]);
+    tx(2) hull() {
+      ty(-5) rz(90) cylinder(d = 16/cos(30), h = h, $fn=6);
+      rcc([16, 8, h]);
+    }
+    tz(h/2) ry(90) carriage_hole_positions(MGN7C_carriage) {
+      cylinder(d = screw_clearance_d(carriage_screw(MGN7C_carriage)),
+               h = 100, center = true);
+    }
+    ty(4-eta) tz(h/2) rx(-90)
+      cylinder(d = screw_tap_d(M4_cap_screw), h = 40);
+
+    tz(h/2) ry(90) myz(36/2-eta) tz(-9) {
+      cylinder(d = screw_clearance_d(M3_cap_screw), h = 100);
+      tz(1.5) cylinder(d = 6, h = 100);
+    }
   }
 }
 
