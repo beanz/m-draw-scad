@@ -16,9 +16,26 @@ use <x-rail.scad>
 //! evenly.
 
 module main_assembly() assembly("main") {
-  frame_x_carriage_assembly();
+  frame_electrical_assembly();
   tz(top_belt_h) top_belt();
   tz(bottom_belt_h) bottom_belt();
+}
+
+module frame_electrical_assembly()
+    pose([81, 0, 137], [3, 172, 32], d = 500, exploded = true)
+    assembly("frame_electrical") {
+  frame_x_carriage_assembly();
+  sc = pcb_screw(grbl_esp32);
+  ty(fd/2) rx(-90) {
+    pcb_mount_stl();
+    ty(-32+2) myz(30) tz(th/2) screw(ex_print_screw, 8);
+    explode([0, 0, 30], explode_children = true) {
+      ty(-32) tz(8) espdraw_pcb();
+      ty(-32) tz(10) pcb_screw_positions(grbl_esp32) {
+        screw(sc, 10);
+      }
+    }
+  }
 }
 
 module frame_x_carriage_assembly()
@@ -149,6 +166,40 @@ module top_belt() {
   ];
   belt(GT2x6, path, open = true, auto_twist = false,
        belt_colour = top_belt_color);
+}
+
+module pcb_mount_stl() stl("pcb_mount") {
+  sc = pcb_screw(grbl_esp32);
+  ir = screw_tap_d(sc)/2;
+  color(print_color) render() ty(-32) difference() {
+    union() {
+      linear_extrude(th) {
+        difference() {
+          hull() pcb_screw_positions(grbl_esp32) {
+            circle(r = ir+th/2);
+          }
+          pcb_screw_positions(grbl_esp32) {
+            circle(r = ir);
+          }
+          ty(2) myz(30) circle(d = screw_clearance_d(ex_print_screw));
+        }
+      }
+      pcb_screw_positions(grbl_esp32) {
+        pcb_spacer(sc, th+3, taper = 4);
+      }
+    }
+
+    // clearance for screw head
+    tz(th/2) ty(2) myz(30)
+      cylinder(r = 0.5+screw_head_radius(ex_print_screw), h = 100);
+  }
+}
+
+module espdraw_pcb() {
+  pcb(grbl_esp32);
+  comp = [20, 3, -90, "usb_uA"];
+  p = pcb_coord(grbl_esp32, comp);
+  txyz(p.x, p.y, 14) pcb_component(comp, false, 0);
 }
 
 if ($preview) {
