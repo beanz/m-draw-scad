@@ -172,6 +172,7 @@ cl = 0.2;
 idler_h = ball_bearing_h(BBF623)*2+washer_h(M3_washer)*3;
 double_idler_h = ball_bearing_h(BBF623)*4+washer_h(M3_washer)*5;
 acme_nut_w = 12;
+x_carriage_w = carriage_width(x_car)+2+th;
 
 fw = pw+212;
 fd = pd+154;
