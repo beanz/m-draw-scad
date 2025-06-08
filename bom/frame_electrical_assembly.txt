@@ -1,0 +1,11 @@
+frame_electrical_assembly:
+Vitamins:
+  1 GRBL_esp32
+  4 Screw M3 cap x 10mm
+  2 Screw M4 flanged x  8mm
+
+Printed:
+  1 pcb_mount.stl
+
+Assemblies:
+  1 frame_x_carriage_assembly

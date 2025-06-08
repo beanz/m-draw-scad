@@ -1,0 +1,4 @@
+pen_assembly:
+Vitamins:
+  1 MG92B Servo
+  2 Screw M2 cap x  8mm

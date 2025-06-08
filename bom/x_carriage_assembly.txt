@@ -6,4 +6,5 @@ Printed:
   2 x_belt_clamp.stl
 
 Assemblies:
+  1 pen_assembly
   1 x_carriage_insert_assembly

@@ -1,72 +1,77 @@
 Vitamins:
-                                                                R                     
-                                              L           R     i        X            
-                      F        F        L     e           i     g  R                  
-       B              r        r        e     f  L        g     h  i     c     X      
-       a              a        o        f     t  e        h     t  g     a            
-       c              m        n        t        f        t        h     r     r      
-       k  D           e  F     t              m  t              m  t     r     a      
-          o     F  F     r  F           i     o        R  i  R  o        i     i  X   
- B  B  f  u     r  r  x  a  r  f     L  n  L  t  y     i  n  i  t  y  X  a     l      
- a  a  r  b     a  a     m  o  r     e  n  e  o        g  n  g  o        g        r   
- c  c  a  l     m  m  c  e  n  a     f  e  f  r  c     h  e  h  r  c  c  e     c  a   
- k  k  m  e     e  e  a     t  m     t  r  t     a     t  r  t     a  a        a  i   
-       e              r  x     e              p  r              p  r  r  i  X  r  l  Y
- a  f     i  F  i  m  r     f     I  i  i  m  u  r     i  i  m  u  r  r  n     r      
- n  r  l  d  r  d  o  i  r  r  l  d  d  d  o  l  i  M  d  d  o  l  i  i  s  r  i  l  r
- d  a  e  l  a  l  t  a  a  a  e  l  l  l  t  l  a  a  l  l  t  l  a  a  e  a  a  e  a
-    m  f  e  m  e  o  g  i  m  f  e  e  e  o  e  g  i  e  e  o  e  g  g  r  i  g  f  i
- y  e  t  r  e  r  r  e  l  e  t  r  r  r  r  y  e  n  r  r  r  y  e  e  t  l  e  t  l
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  | 1|  |  |  |  |  |  |  |  2 Stepper motor NEMA17 x 47mm (5x24 shaft)
-  |  |  | 8|  |  |  |  |  |  |  |16|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 24 Ball bearing F623-2RS 3mm x 10mm x 4mm
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  1 Belt GT2 x 6mm x 1524mm
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  1 Belt GT2 x 6mm x 1524mm
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  1 Linear rail carriage MGN12H
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  2 Linear rail carriage MGN15H
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  1 Extrusion E2020 x 450mm
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  2 Extrusion E2040 x 354mm
-  |  | 1|  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  2 Extrusion E2040 x 472mm
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 4|  |  |  |  |  4 Heatfit insert M3 x 4mm
-  |  |  |  |  |  |  |  |  |  |  |  | 2|  |  |  |  |  | 2|  |  |  |  |  |  |  |  |  |  |  4 Nut M4 x 3.2mm 
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  |  |  |  |  | 2|  |  |  |  |  |  |  4 Nut M4 x 3.2mm 
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  | 1|  |  |  |  |  |  |  |  2 Pulley GT2OB 20 teeth
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  1 Linear rail MGN12 x 400mm
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  2 Linear rail MGN15 x 300mm
-  |  |  |  |  |  |  | 4| 8|  |  |  |  |  |  |  |  |  |  |  |  |  |  | 4|  |  |14|  |12| 42 Screw M3 cap x 10mm
-  |  |  |  |  |  |  |  |  |  |  |  |  |  | 4|  |  |  |  |  | 4|  |  |  |  |  |  |  |  |  8 Screw M3 cap x 35mm
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  |  |  |  |  | 2|  |  |  |  |  |  |  4 Screw M3 cap x 45mm
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  | 4|  6 Screw M3 cs cap x 12mm
-  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  2 Screw M3 grub x 20mm
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  |  |  |  |  | 2|  |  |  |  |  |  |  |  4 Screw M3 grub x  6mm
-  | 3| 3|  |  | 6|10|  |  | 1| 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  | 1|  | 26 Screw M4 flanged x 10mm
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  | 1|  |  2 Screw M4 flanged x 16mm
-  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  |  |  |  |  | 2|  |  |  |  |  |  |  |  |  |  4 Screw M4 flanged x 45mm
- 4|  |  |  | 2|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  6 Screw M5 flanged x 10mm
-  |  |  |  | 2|  |  |  |  | 1| 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  4 Screw M5 low profile x 10mm
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|16| 2|16| 36 Nut M3 sliding T
- 2| 7| 7|  | 2|  |  |  |  | 4| 4|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 26 Nut M4 sliding T
-  |  |  |14|  |  |  | 4| 8|  |  |24|  |  | 4|  | 2|  |  |  | 4|  | 2|  |  |  |  |  |  | 62 Washer  M3 x 7mm x 0.5mm
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  |  |  |  |  | 2|  |  |  |  |  |  |  4 Washer  M4 x 9mm x 0.8mm
+                                                                      R                     
+                                                 L              R     i        X            
+                F        F        F        L     e              i     g  R                  
+       B        r        r        r        e     f  L           g     h  i     c     X      
+       a        a        a        o        f     t  e           h     t  g     a            
+       c        m        m        n        t        f           t        h     r     r      
+       k  D     e        e  F     t              m  t                 m  t     r     a      
+          o        F  F     r  F           i     o           R  i  R  o        i     i  X   
+ B  B  f  u     e  r  r  x  a  r  f     L  n  L  t  y        i  n  i  t  y  X  a     l      
+ a  a  r  b     l  a  a     m  o  r     e  n  e  o           g  n  g  o        g        r   
+ c  c  a  l     e  m  m  c  e  n  a     f  e  f  r  c        h  e  h  r  c  c  e     c  a   
+ k  k  m  e     c  e  e  a     t  m     t  r  t     a        t  r  t     a  a        a  i   
+       e        t        r  x     e              p  r                 p  r  r  i  X  r  l  Y
+ a  f     i  F  r  i  m  r     f     I  i  i  m  u  r        i  i  m  u  r  r  n     r      
+ n  r  l  d  r  i  d  o  i  r  r  l  d  d  d  o  l  i  M     d  d  o  l  i  i  s  r  i  l  r
+ d  a  e  l  a  c  l  t  a  a  a  e  l  l  l  t  l  a  a  P  l  l  t  l  a  a  e  a  a  e  a
+    m  f  e  m  a  e  o  g  i  m  f  e  e  e  o  e  g  i  e  e  e  o  e  g  g  r  i  g  f  i
+ y  e  t  r  e  l  r  r  e  l  e  t  r  r  r  r  y  e  n  n  r  r  r  y  e  e  t  l  e  t  l
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  2 Stepper motor NEMA17 x 47mm (5x24 shaft)
+  |  |  | 8|  |  |  |  |  |  |  |  |16|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 24 Ball bearing F623-2RS 3mm x 10mm x 4mm
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  1 Belt GT2 x 6mm x 1524mm
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  1 Belt GT2 x 6mm x 1524mm
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  1 Linear rail carriage MGN12H
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  2 Linear rail carriage MGN15H
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  1 Extrusion E2020 x 450mm
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  2 Extrusion E2040 x 354mm
+  |  | 1|  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  2 Extrusion E2040 x 472mm
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 4|  |  |  |  |  4 Heatfit insert M3 x 4mm
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  1 MG92B Servo
+  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  |  |  |  |  |  | 2|  |  |  |  |  |  |  |  |  |  |  4 Nut M4 x 3.2mm 
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  |  |  |  |  |  | 2|  |  |  |  |  |  |  4 Nut M4 x 3.2mm 
+  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  1 GRBL_esp32
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  2 Pulley GT2OB 20 teeth
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  1 Linear rail MGN12 x 400mm
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  2 Linear rail MGN15 x 300mm
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  |  |  |  |  |  |  |  |  |  |  |  2 Screw M2 cap x  8mm
+  |  |  |  |  | 4|  |  | 4| 8|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 4|  |  |14|  |12| 46 Screw M3 cap x 10mm
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 4|  |  |  |  |  |  | 4|  |  |  |  |  |  |  |  |  8 Screw M3 cap x 35mm
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  |  |  |  |  |  | 2|  |  |  |  |  |  |  4 Screw M3 cap x 45mm
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  | 4|  6 Screw M3 cs cap x 12mm
+  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  2 Screw M3 grub x 20mm
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  |  |  |  |  |  | 2|  |  |  |  |  |  |  |  4 Screw M3 grub x  6mm
+  | 3| 3|  |  |  | 6|10|  |  | 1| 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  | 1|  | 26 Screw M4 flanged x 10mm
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  | 1|  |  2 Screw M4 flanged x 16mm
+  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  |  |  |  |  |  | 2|  |  |  |  |  |  |  |  |  |  4 Screw M4 flanged x 45mm
+  |  |  |  |  | 2|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  2 Screw M4 flanged x  8mm
+ 4|  |  |  | 2|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  6 Screw M5 flanged x 10mm
+  |  |  |  | 2|  |  |  |  |  | 1| 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  4 Screw M5 low profile x 10mm
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|16| 2|16| 36 Nut M3 sliding T
+ 2| 7| 7|  | 2|  |  |  |  |  | 4| 4|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 26 Nut M4 sliding T
+  |  |  |14|  |  |  |  | 4| 8|  |  |24|  |  | 4|  | 2|  |  |  |  | 4|  | 2|  |  |  |  |  |  | 62 Washer  M3 x 7mm x 0.5mm
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  |  |  |  |  |  | 2|  |  |  |  |  |  |  4 Washer  M4 x 9mm x 0.8mm
 
 Printed:
-  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  1 left_back_corner.stl
-  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  1 left_front_corner.stl
-  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  1 left_front_idler.stl
-  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  1 left_idler_mount.stl
-  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  1 left_lower_motor_mount.stl
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  1 left_lower_y_carriage.stl
-  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  1 left_motor_mount.stl
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  1 left_y_carriage.stl
-  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  1 right_back_corner.stl
-  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  1 right_front_corner.stl
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  1 right_front_idler.stl
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  1 right_idler_mount.stl
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  1 right_lower_motor_mount.stl
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  1 right_lower_y_carriage.stl
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  1 right_motor_mount.stl
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  1 right_y_carriage.stl
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  |  |  |  |  |  2 x_belt_clamp.stl
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  1 x_carriage.stl
+  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  1 left_back_corner.stl
+  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  1 left_front_corner.stl
+  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  1 left_front_idler.stl
+  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  1 left_idler_mount.stl
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  1 left_lower_motor_mount.stl
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  1 left_lower_y_carriage.stl
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  1 left_motor_mount.stl
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  1 left_y_carriage.stl
+  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  1 pcb_mount.stl
+  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  1 right_back_corner.stl
+  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  1 right_front_corner.stl
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  1 right_front_idler.stl
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  |  |  1 right_idler_mount.stl
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  1 right_lower_motor_mount.stl
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  1 right_lower_y_carriage.stl
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  |  |  1 right_motor_mount.stl
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  |  |  1 right_y_carriage.stl
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 2|  |  |  |  |  |  2 x_belt_clamp.stl
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 1|  |  |  |  |  1 x_carriage.stl
 
 Assemblies:
   1 back_and_y_assembly
@@ -74,6 +79,7 @@ Assemblies:
   1 back_frame_left_assembly
   2 double_idler_assemblies
   1 frame_assembly
+  1 frame_electrical_assembly
   1 frame_idler_assembly
   1 frame_motor_assembly
   1 frame_x_carriage_assembly
@@ -87,6 +93,7 @@ Assemblies:
   1 left_motor_pulley_assembly
   1 left_y_carriage_assembly
   1 main_assembly
+  1 pen_assembly
   1 right_idler_assembly
   1 right_inner_idler_assembly
   1 right_motor_assembly
