@@ -5,10 +5,11 @@ include <shapes.scad>
 module pen_assembly() assembly("pen") {
   //pen_mount_stl();
   //tx(-100) pen_holder_stl();
-  txyz(0.5, -servo_shaft_offset()+13.5, servo_boss_height()) {
-    tz(-th) servo(-90);
-    tz(0) servo_hole_positions() screw(M2_cap_screw, 8);
+  txyz(0.5, -servo_shaft_offset()+13.9, servo_boss_height()) {
+    tz(-th) servo(pos[2] > 0 ? -200 : -240);
+    tz(-2) servo_hole_positions() screw(M2_cap_screw, 8);
   }
+  txyz(th, -5.5, 11) ry(-90) rz(90) pen_carriage_stl();
 }
 
 module pen_mount_stl() stl("pen_mount") {
@@ -102,4 +103,26 @@ module servo_hole_positions() {
   oy = servo_shaft_offset();
   gap_y = 27.8;
   tyz(oy, -6.5) mxz(gap_y/2) children();
+}
+
+module pen_carriage_stl() stl("pen_carriage") {
+  //txyz(-5.5, 17, 24) rx(90) x_carriage_stl();
+  h = 48;
+  color(print_color) render() rz(90) difference() {
+    union() {
+      tx(1) rrc([2, 30, h], r = 1);
+      txz(5,h/2) mxy((h-7)/2) rc([10, 30, 7], r = 1);
+    }
+    txyz(7, 3, -eta) mxz(8) {
+      cylinder(d = screw_tap_d(M4_cap_screw), h = 12);
+      //tz(4) cylinder(d = 4.5, h = 12);
+    }
+    txyz(7, -3.5, h-12+eta) mxz(8) {
+      cylinder(d = screw_tap_d(M4_cap_screw), h = 12);
+      //tz(-4) cylinder(d = 4.5, h = 12);
+    }
+    tyz(-1.3, h/2) mxy(18)
+      ry(90) cylinder(d = screw_tap_d(M2_cap_screw)+0.5, h = h,
+        center = true);
+  }
 }

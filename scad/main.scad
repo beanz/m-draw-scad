@@ -45,8 +45,9 @@ module frame_x_carriage_assembly()
   tyz(pos[1]-ew/2, x_rail_h+ew/2) rx(90) tx(pos[0]) {
     tz(x_car_h) x_carriage_assembly();
     tz(th) carriage_hole_positions(x_car) {
-      screw_and_washer(carriage_screw(x_car), 10);
+      screw(M3_dome_screw, 8);
     }
+    //txyz(5, -7.5-12, x_car_h+th+12) rx(-90) pen_carriage_stl();
   }
 }
 

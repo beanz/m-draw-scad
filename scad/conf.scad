@@ -179,7 +179,7 @@ fd = pd+154;
 
 //pos = [cos(360*$t)*pw/2, sin(360*$t)*pd/2];
 //pos = [pw/4, pd/2];
-pos = [0,0];
+pos = [0, 0, 5];
 y_rail_l = 300;
 
 x_bar_l = fw-ew*2-22;
