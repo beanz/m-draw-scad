@@ -110,8 +110,8 @@ axes:
       rc_servo:
         pwm_hz: 50
         output_pin: gpio.27
-        min_pulse_us: 2100
-        max_pulse_us: 1000
+        min_pulse_us: 500
+        max_pulse_us: 1100
     motor1:
       null_motor:
         
