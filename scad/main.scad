@@ -47,7 +47,39 @@ module frame_x_carriage_assembly()
     tz(th) carriage_hole_positions(x_car) {
       screw(M3_dome_screw, 8);
     }
-    //txyz(5, -7.5-12, x_car_h+th+12) rx(-90) pen_carriage_stl();
+  }
+  txyz(-fw/8, fd/2+th, ew*1.5) ry(-90)
+    rx(90) servo_cable_support_stl();
+}
+
+module servo_cable_support_stl() stl("servo_cable_support") {
+  l = 145;
+  color(print_color) render() ty(l/2-ew*1.25) difference() {
+    union() {
+      rrc([ew/2, l, th]);
+
+      // right-angle end part
+      txy(ew*0.5, l/2-ew/4) rrc([ew*1.5, ew/2, th]);
+
+      // snap-in-bump
+      ty(-l/2+ew*.25) {
+        hull() {
+          rcc([6, 6, th]);
+          rcc([4, 4, th+1]);
+        }
+      }
+    }
+
+    // pivot/attachment screw
+    ty(-l/2+ew*1.25)
+      cylinder(d = screw_clearance_d(ex_print_screw),
+               h = 100, center = true);
+
+    // cable tie slots
+    tz(th) {
+      fy([0, l/4, l/2-ew/2]) cc([ew, 4, 4]);
+      txy(ew, l/2-ew/4) cc([4, ew, 4]);
+    }
   }
 }
 
