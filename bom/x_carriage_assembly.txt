@@ -1,10 +1,14 @@
 x_carriage_assembly:
 Vitamins:
+  1 Linear rail carriage MGN7C
+  1 MG92B Servo
+  1 Linear rail MGN7 x 60mm
+  2 Screw M2 cap x  8mm
   4 Screw M3 cap x 10mm
 
 Printed:
   2 x_belt_clamp.stl
+  1 z_carriage.stl
 
 Assemblies:
-  1 pen_assembly
   1 x_carriage_insert_assembly

@@ -1,23 +1,5 @@
 [
     {
-        "name": "pen_assembly",
-        "big": null,
-        "ngb": false,
-        "zoomed": 0,
-        "count": 1,
-        "assemblies": {},
-        "vitamins": {
-            "mg92b: MG92B Servo": {
-                "count": 1
-            },
-            "screw(M2_cap_screw, 8): Screw M2 cap x  8mm": {
-                "count": 2
-            }
-        },
-        "printed": {},
-        "routed": {}
-    },
-    {
         "name": "x_carriage_insert_assembly",
         "big": null,
         "ngb": false,
@@ -45,17 +27,33 @@
         "zoomed": 0,
         "count": 1,
         "assemblies": {
-            "x_carriage_insert_assembly": 1,
-            "pen_assembly": 1
+            "x_carriage_insert_assembly": 1
         },
         "vitamins": {
             "screw(M3_cap_screw, 10): Screw M3 cap x 10mm": {
                 "count": 4
+            },
+            "mg92b: MG92B Servo": {
+                "count": 1
+            },
+            "screw(M2_cap_screw, 8): Screw M2 cap x  8mm": {
+                "count": 2
+            },
+            "rail(MGN7, 60): Linear rail MGN7 x 60mm": {
+                "count": 1
+            },
+            "carriage(MGN7C_carriage): Linear rail carriage MGN7C": {
+                "count": 1
             }
         },
         "printed": {
             "x_belt_clamp.stl": {
                 "count": 2,
+                "colour": "[0, 0.572549, 0]",
+                "camera": "0,0,0,70,0,315,500"
+            },
+            "z_carriage.stl": {
+                "count": 1,
                 "colour": "[0, 0.572549, 0]",
                 "camera": "0,0,0,70,0,315,500"
             }
@@ -713,14 +711,17 @@
             "x_carriage_assembly": 1
         },
         "vitamins": {
-            "washer(M3_washer): Washer  M3 x 7mm x 0.5mm": {
-                "count": 4
-            },
-            "screw(M3_cap_screw, 10): Screw M3 cap x 10mm": {
+            "screw(M3_dome_screw, 8): Screw M3 dome x  8mm": {
                 "count": 4
             }
         },
-        "printed": {},
+        "printed": {
+            "servo_cable_support.stl": {
+                "count": 1,
+                "colour": "[0, 0.572549, 0]",
+                "camera": "0,0,0,70,0,315,500"
+            }
+        },
         "routed": {}
     },
     {

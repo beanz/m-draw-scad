@@ -1,7 +1,9 @@
 frame_x_carriage_assembly:
 Vitamins:
-  4 Screw M3 cap x 10mm
-  4 Washer  M3 x 7mm x 0.5mm
+  4 Screw M3 dome x  8mm
+
+Printed:
+  1 servo_cable_support.stl
 
 Assemblies:
   1 frame_x_rail_assembly
