@@ -81,7 +81,7 @@ module left_inner_idler_assembly() assembly("left_inner_idler") {
 }
 
 module left_front_idler_stl() stl("left_front_idler") {
-  color(print_color) render() difference() {
+  color(alt_print_color) render() difference() {
     tz(-4-(top_belt_h-bottom_belt_h)/2)
       rc([20,20,44+(top_belt_h-bottom_belt_h)]);
     // belt hole
@@ -180,7 +180,7 @@ module right_inner_idler_assembly() assembly("right_inner_idler") {
 }
 
 module right_front_idler_stl() stl("right_front_idler") {
-  color(print_color) render() difference() {
+  color(alt_print_color) render() difference() {
     tz(-4) rc([20,20,44]);
     // belt hole
     hull() {

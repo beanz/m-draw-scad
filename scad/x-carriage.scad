@@ -81,7 +81,7 @@ module x_carriage_stl() stl("x_carriage") {
 }
 
 module x_belt_clamp_stl() stl("x_belt_clamp") {
-  color(print_color) render() {
+  color(alt_print_color) render() {
     difference() {
       hull() {
         mxz(x_carriage_insert_hole_gap/2)
