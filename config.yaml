@@ -19,8 +19,8 @@ axes:
   
   x:
     steps_per_mm: 320
-    max_rate_mm_per_min: 16000
-    acceleration_mm_per_sec2: 100
+    max_rate_mm_per_min: 24000
+    acceleration_mm_per_sec2: 200
     max_travel_mm: 170
     soft_limits: false
     homing:
@@ -34,16 +34,18 @@ axes:
       feed_scaler: 1.100
     
     motor0:
-      limit_all_pin: gpio.32:low:pu
+      limit_neg_pin: gpio.32
+      limit_pos_pin: NO_PIN
+      limit_all_pin: NO_PIN
       tmc_2130:
         direction_pin: gpio.26:low
         step_pin: gpio.12
         cs_pin: gpio.17
         r_sense_ohms: 0.110
-        run_amps: 0.8
+        run_amps: 1.0
         hold_amps: 0.250
         microsteps: 32
-        stallguard: 0
+        stallguard: 30
         stallguard_debug: false
         toff_disable: 0
         toff_stealthchop: 5
@@ -56,8 +58,8 @@ axes:
 
   y:
     steps_per_mm: 320
-    max_rate_mm_per_min: 16000
-    acceleration_mm_per_sec2: 100
+    max_rate_mm_per_min: 24000
+    acceleration_mm_per_sec2: 400
     max_travel_mm: 340
     soft_limits: false
     homing:
@@ -71,16 +73,18 @@ axes:
       feed_scaler: 1.100
 
     motor0:
-      limit_all_pin: gpio.4:low:pu
+      limit_neg_pin: gpio.4
+      limit_pos_pin: NO_PIN
+      limit_all_pin: NO_PIN
       tmc_2130:
         direction_pin: gpio.25:high
         step_pin: gpio.14
         cs_pin: gpio.16
         r_sense_ohms: 0.110
-        run_amps: 0.8
+        run_amps: 1.0
         hold_amps: 0.250
         microsteps: 32
-        stallguard: 0
+        stallguard: 30
         stallguard_debug: false
         toff_disable: 0
         toff_stealthchop: 5
